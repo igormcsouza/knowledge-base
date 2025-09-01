@@ -16,7 +16,7 @@ This knowledge base is built with [MkDocs Material](https://squidfunk.github.io/
 ### Using Tags
 Each article is tagged with relevant topics. You can:
 
-- Browse all available tags on the [Tags page](tags.md)
+- Browse all available tags on the [Tags page](knowledge/tags.md)
 - Click on any tag to see related articles
 - Use tags in the search to filter content
 
@@ -30,7 +30,7 @@ Example tags you'll find:
 
 To add new content to the knowledge base:
 
-1. **Create a new Markdown file** in the `docs/` directory
+1. **Create a new Markdown file** in the `docs/knowledge/` directory
 2. **Add tags at the top** of your file:
    ```markdown
    tags:
@@ -62,7 +62,7 @@ Your content here...
 
 ### Searching with Tags
 - Use the search bar to find tag-specific content
-- Browse the [Tags page](tags.md) to see all available tags
+- Browse the [Tags page](knowledge/tags.md) to see all available tags
 - Click on tags within articles to find related content
 
 ## How to Preview the Site Locally

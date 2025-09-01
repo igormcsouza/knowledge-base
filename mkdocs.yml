@@ -20,14 +20,14 @@ theme:
     - content.code.select
   palette:
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: green
+      accent: green
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: green
+      accent: green
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -54,10 +54,12 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
-  - Python:
-      - Tips & Tricks: python-tips.md
-      - Flask Framework: python-flask-framework.md
-  - Git:
-      - Tricks & Commands: git-tricks.md
-      - Configurations: git-configurations.md
-  - Tags: tags.md
+  - Knowledge Base:
+      - Overview: knowledge/index.md
+      - Python:
+          - Tips & Tricks: knowledge/python-tips.md
+          - Flask Framework: knowledge/python-flask-framework.md
+      - Git:
+          - Tricks & Commands: knowledge/git-tricks.md
+          - Configurations: knowledge/git-configurations.md
+      - Tags: knowledge/tags.md
