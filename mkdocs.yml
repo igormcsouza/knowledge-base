@@ -32,6 +32,20 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/igormcsouza/
+      name: LinkedIn
+    - icon: fontawesome/brands/github
+      link: https://github.com/igormcsouza
+      name: GitHub
+    - icon: fontawesome/solid/globe
+      link: https://igormcsouza.github.io/
+      name: Personal Website
+
+copyright: Copyright &copy; 2024 Igor Souza
+
 plugins:
   - search
   - tags
