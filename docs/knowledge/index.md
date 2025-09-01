@@ -25,7 +25,7 @@ Master Git for better development workflow:
 - **[Git Configurations](git-configurations.md)** - Essential Git setup and configuration guide
 
 ### 🏷️ Browse by Topics
-- **[Tags](tags.md)** - Find content by tags and topics for easy discovery
+- **[Tags](../tags.md)** - Find content by tags and topics for easy discovery
 
 ## How to Navigate
 
