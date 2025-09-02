@@ -1,9 +1,11 @@
 ---
 tags:
-  - python
-  - flask
-  - web-development
-  - framework
+
+- python
+- flask
+- web-development
+- framework
+
 ---
 
 # Flask Framework

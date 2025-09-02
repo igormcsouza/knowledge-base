@@ -1,9 +1,11 @@
 ---
 tags:
-  - git
-  - version-control
-  - commands
-  - tips
+
+- git
+- version-control
+- commands
+- tips
+
 ---
 
 # Git Tricks & Commands
