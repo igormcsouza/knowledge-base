@@ -14,38 +14,20 @@ This is a comprehensive knowledge base built with **MkDocs Material** that conta
 - **Deployment**: GitHub Actions → GitHub Pages
 - **Code Quality**: Pre-commit hooks
 
-## Project Structure
-
-```
-knowledge-base/
-├── docs/                          # All content files
-│   ├── index.md                   # Homepage
-│   ├── getting-started.md         # Contributor guide
-│   └── knowledge/                 # Main content directory
-│       ├── index.md               # Knowledge section overview
-│       ├── python-tips.md         # Python development content
-│       ├── python-flask-framework.md
-│       ├── git-tricks.md          # Git commands and workflows
-│       └── git-configurations.md
-├── mkdocs.yml                     # Site configuration and navigation
-├── pyproject.toml                 # Poetry dependencies
-└── .github/workflows/deploy.yml   # Automated deployment
-```
-
 ## Content Guidelines
 
 ### Creating New Articles
 
-1. **File Location**: Place new `.md` files in appropriate subdirectories under `/docs/knowledge/`
-2. **File Naming**: Use lowercase with hyphens (e.g., `python-advanced-features.md`)
+1. **File Location**: Place new `.md` files in appropriate subdirectories under the docs content directory
+2. **File Naming**: Use lowercase with hyphens (e.g., `topic-subtopic.md`)
 3. **Front Matter**: Include tags and metadata at the top of articles:
 
 ```markdown
 ---
 tags:
-  - Python
-  - Advanced
-  - Best Practices
+  - [Technology]
+  - [Category]
+  - [Difficulty Level]
 ---
 
 # Article Title
@@ -55,8 +37,8 @@ Your content here...
 
 ### Content Organization
 
-- **Navigation**: Update `mkdocs.yml` nav section when adding new articles
-- **Categories**: Organize content by technology/topic (Python, Git, Web Frameworks, etc.)
+- **Navigation**: Update the site configuration nav section when adding new articles
+- **Categories**: Organize content by technology/topic 
 - **Tags**: Use consistent tags for searchability and categorization
 - **Cross-references**: Link related articles using relative paths
 
@@ -69,15 +51,14 @@ This project uses **PyMdown Extensions** with these features:
 - **Tabs**: Use `=== "Tab Title"` for multi-option content
 - **Collapsible Sections**: Use `??? "Collapsible Title"` for optional details
 
-Example:
+Example patterns:
 ```markdown
 !!! tip "Pro Tip"
     This is a helpful tip for readers.
 
-```python
-def example_function():
-    """Always include docstrings."""
-    return "Hello, World!"
+```language
+# Code example with appropriate syntax highlighting
+function_call()
 ```
 
 === "Option 1"
@@ -91,40 +72,22 @@ def example_function():
 
 ### Local Development Setup
 
-1. **Clone Repository**:
-   ```bash
-   git clone https://github.com/igormcsouza/knowledge-base.git
-   cd knowledge-base
-   ```
-
-2. **Install Dependencies**:
-   ```bash
-   pip install poetry
-   poetry install
-   ```
-
-3. **Start Development Server**:
-   ```bash
-   poetry run mkdocs serve
-   ```
-   Site available at http://127.0.0.1:8000
-
-4. **Build Site Locally**:
-   ```bash
-   poetry run mkdocs build
-   ```
+1. **Clone Repository**: Use standard git clone workflow
+2. **Install Dependencies**: Use Poetry for dependency management
+3. **Start Development Server**: Use MkDocs serve command for local development
+4. **Build Site Locally**: Use MkDocs build command for testing
 
 ### Content Creation Process
 
-1. Create new markdown files in appropriate `/docs/knowledge/` subdirectory
-2. Add navigation entry to `mkdocs.yml` if creating new sections
+1. Create new markdown files in appropriate content subdirectories
+2. Add navigation entry to site configuration if creating new sections
 3. Use consistent tags and follow markdown conventions
-4. Test locally with `mkdocs serve`
+4. Test locally with development server
 5. Commit changes and create pull request
 
 ### Navigation Configuration
 
-When adding new content, update the `nav` section in `mkdocs.yml`:
+When adding new content, update the nav section in the site configuration file:
 
 ```yaml
 nav:
@@ -132,11 +95,9 @@ nav:
   - Getting Started: getting-started.md
   - Knowledge Base:
       - Overview: knowledge/index.md
-      - Python:
-          - Tips & Tricks: knowledge/python-tips.md
-          - New Article: knowledge/python-new-topic.md  # Add here
-      - Git:
-          - Tricks & Commands: knowledge/git-tricks.md
+      - [Category]:
+          - [Topic]: knowledge/topic-name.md
+          - [New Article]: knowledge/new-topic.md  # Add here
 ```
 
 ## Common Patterns and Examples
@@ -164,9 +125,9 @@ Brief introduction explaining what this article covers.
 
 Content with practical examples.
 
-```bash
-# Command examples
-git status
+```language
+# Command or code examples with appropriate syntax highlighting
+command_example
 ```
 
 !!! tip "Best Practice"
@@ -192,7 +153,7 @@ More detailed content.
 
 Use these consistent tag categories:
 
-- **Technologies**: `Python`, `Git`, `Flask`, `Django`, `JavaScript`, etc.
+- **Technologies**: Language and framework names
 - **Categories**: `Tips`, `Tutorial`, `Reference`, `Best Practices`, `Commands`
 - **Difficulty**: `Beginner`, `Intermediate`, `Advanced`
 - **Topics**: `Web Development`, `DevOps`, `Testing`, `Performance`
@@ -201,7 +162,7 @@ Use these consistent tag categories:
 
 - **Automatic**: Pushes to `main` branch trigger GitHub Actions deployment
 - **Manual**: Never needed - all deployments are automated
-- **Preview**: Use `mkdocs serve` for local preview before committing
+- **Preview**: Use local development server for preview before committing
 
 ## Code Quality
 
@@ -216,31 +177,29 @@ When helping with this project:
 1. **Content Creation**: Suggest appropriate file locations, tags, and navigation entries
 2. **Markdown**: Use project-specific extensions and formatting conventions
 3. **Structure**: Follow the established organization pattern
-4. **Navigation**: Always suggest updating `mkdocs.yml` when adding new content
-5. **Tags**: Recommend consistent, searchable tags
-6. **Examples**: Include practical code examples with proper syntax highlighting
-7. **Cross-references**: Suggest linking to related existing content
+3. **Navigation**: Always suggest updating site configuration when adding new content
+4. **Tags**: Recommend consistent, searchable tags
+5. **Examples**: Include practical code examples with proper syntax highlighting
+6. **Cross-references**: Suggest linking to related existing content
 
 ## Troubleshooting
 
 ### Common Issues
 
-- **Build Failures**: Check `mkdocs.yml` syntax and file paths
+- **Build Failures**: Check site configuration syntax and file paths
 - **Navigation Issues**: Ensure all referenced files exist
 - **Search Problems**: Verify tags are properly formatted
 - **Styling Issues**: Check markdown extension syntax
 
 ### Commands for Debugging
 
-```bash
-# Validate configuration
-poetry run mkdocs config
-
-# Build with verbose output
-poetry run mkdocs build --verbose
-
-# Check for broken links
-poetry run mkdocs serve --strict
-```
+Use the appropriate Poetry and MkDocs commands for:
+- Configuration validation
+- Verbose build output  
+- Link checking and validation
 
 This knowledge base serves as a living document of software engineering expertise. When contributing, focus on practical, actionable content that helps developers solve real problems.
+
+## Maintenance Guidelines
+
+**Important**: Keep examples in this file generic and avoid specific code snippets, file paths, or implementation details that may become outdated. Use placeholders like `[Technology]`, `[Category]`, or `language` instead of actual values. This prevents the instructions from becoming obsolete and requiring frequent updates.
