@@ -141,10 +141,9 @@ Brief introduction explaining what this article covers.
 
 Content with practical examples.
 
-    ```language
+    language
     # Command or code examples with appropriate syntax highlighting
     command_example
-    ```
 
 ```
 
