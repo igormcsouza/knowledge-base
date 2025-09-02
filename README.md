@@ -9,7 +9,7 @@ A modern, searchable knowledge base built with [MkDocs Material](https://squidfu
 This repository contains comprehensive documentation on:
 
 - **Python Development**: Tips, tricks, and best practices
-- **Web Frameworks**: Flask guides and tutorials  
+- **Web Frameworks**: Flask guides and tutorials
 - **Version Control**: Git commands, configurations, and workflows
 - **And much more!**
 

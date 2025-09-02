@@ -37,7 +37,7 @@ To add new content to the knowledge base:
      - python
      - tips
      - advanced
-   
+
    # Your Article Title
    ```
 3. **Use descriptive filenames** based on content (e.g., `python-decorators.md`, `git-advanced-workflows.md`)

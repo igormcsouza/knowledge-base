@@ -30,7 +30,7 @@ Nevertheless, it's a useful feature because if you define a variable with the sa
 
 ## Variable Scopes and Closures
 
-Variable scopes define where to look for a variable in Python. Closures are the environment where functions store data about their values. More details in [this video](https://youtu.be/jXugs4B3lwU). 
+Variable scopes define where to look for a variable in Python. Closures are the environment where functions store data about their values. More details in [this video](https://youtu.be/jXugs4B3lwU).
 
 The key principle is:
 

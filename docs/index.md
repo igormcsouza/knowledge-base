@@ -20,7 +20,7 @@ Use the navigation menu above to explore different topics, or use the search fun
 New to this knowledge base? Check out the [Getting Started](getting-started.md) guide to learn how to:
 
 - Navigate the documentation
-- Use tags for efficient searching  
+- Use tags for efficient searching
 - Contribute new content
 - Preview changes locally
 

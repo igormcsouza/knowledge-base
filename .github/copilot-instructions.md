@@ -38,7 +38,7 @@ Your content here...
 ### Content Organization
 
 - **Navigation**: Update the site configuration nav section when adding new articles
-- **Categories**: Organize content by technology/topic 
+- **Categories**: Organize content by technology/topic
 - **Tags**: Use consistent tags for searchability and categorization
 - **Cross-references**: Link related articles using relative paths
 
@@ -195,7 +195,7 @@ When helping with this project:
 
 Use the appropriate Poetry and MkDocs commands for:
 - Configuration validation
-- Verbose build output  
+- Verbose build output
 - Link checking and validation
 
 This knowledge base serves as a living document of software engineering expertise. When contributing, focus on practical, actionable content that helps developers solve real problems.
