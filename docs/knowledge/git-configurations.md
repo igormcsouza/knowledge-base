@@ -1,9 +1,11 @@
 ---
 tags:
-  - git
-  - configuration
-  - setup
-  - workflow
+
+- git
+- configuration
+- setup
+- workflow
+
 ---
 
 # Git Configurations

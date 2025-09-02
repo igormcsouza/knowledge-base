@@ -1,9 +1,11 @@
 ---
 tags:
-  - python
-  - tips
-  - advanced
-  - programming
+
+- python
+- tips
+- advanced
+- programming
+
 ---
 
 # Python Tips & Tricks

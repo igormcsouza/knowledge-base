@@ -26,22 +26,25 @@ This repository contains comprehensive documentation on:
 ### Local Development
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/igormcsouza/knowledge-base.git
    cd knowledge-base
    ```
 
-2. **Install dependencies**:
+1. **Install dependencies**:
+
    ```bash
    poetry install
    ```
 
-3. **Start the development server**:
+1. **Start the development server**:
+
    ```bash
    poetry run mkdocs serve
    ```
 
-4. **Open your browser** to `http://127.0.0.1:8000`
+1. **Open your browser** to `http://127.0.0.1:8000`
 
 ### Contributing
 
@@ -64,4 +67,4 @@ The site is automatically deployed to GitHub Pages via GitHub Actions when chang
 
 ---
 
-*Built with ❤️ using MkDocs Material*
+## Built with ❤️ using MkDocs Material
