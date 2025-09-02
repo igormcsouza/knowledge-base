@@ -132,9 +132,9 @@ When adding or editing content:
 - Keep tags lowercase with hyphens for multi-word tags
 - Be specific but not overly granular
 - Common tag categories:
-    - **Technology**: `python`, `git`, `docker`
-    - **Type**: `tips`, `tutorial`, `reference`
-    - **Level**: `beginner`, `intermediate`, `advanced`
+   - **Technology**: `python`, `git`, `docker`
+   - **Type**: `tips`, `tutorial`, `reference`
+   - **Level**: `beginner`, `intermediate`, `advanced`
 
 ## Deployment
 
