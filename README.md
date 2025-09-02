@@ -33,12 +33,12 @@ This repository contains comprehensive documentation on:
 
 2. **Install dependencies**:
    ```bash
-   pip install mkdocs-material
+   poetry install
    ```
 
 3. **Start the development server**:
    ```bash
-   mkdocs serve
+   poetry run mkdocs serve
    ```
 
 4. **Open your browser** to `http://127.0.0.1:8000`
@@ -56,7 +56,7 @@ Want to add content? Check out the [Getting Started guide](https://igormcsouza.g
 
 The site is automatically deployed to GitHub Pages via GitHub Actions when changes are merged to the main branch.
 
-## Follow Igor
+## Follow Me
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/igormcsouza)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/igormcsouza)
