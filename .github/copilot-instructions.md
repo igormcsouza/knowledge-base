@@ -141,9 +141,11 @@ Brief introduction explaining what this article covers.
 
 Content with practical examples.
 
-```language
-# Command or code examples with appropriate syntax highlighting
-command_example
+    ```language
+    # Command or code examples with appropriate syntax highlighting
+    command_example
+    ```
+
 ```
 
 !!! tip "Best Practice"
