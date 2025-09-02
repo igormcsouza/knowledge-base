@@ -1,3 +1,6 @@
+---
+title: Home
+---
 # Welcome to Igor's Knowledge Base
 
 A comprehensive collection of software engineering knowledge, tips, and tricks gathered during my journey as a Software Engineer.

@@ -16,7 +16,7 @@ This knowledge base is built with [MkDocs Material](https://squidfunk.github.io/
 ### Using Tags
 Each article is tagged with relevant topics. You can:
 
-- Browse all available tags on the [Tags page](tags.md)
+- Browse all available tags on the search options
 - Click on any tag to see related articles
 - Use tags in the search to filter content
 
@@ -62,7 +62,6 @@ Your content here...
 
 ### Searching with Tags
 - Use the search bar to find tag-specific content
-- Browse the [Tags page](tags.md) to see all available tags
 - Click on tags within articles to find related content
 
 ## How to Preview the Site Locally

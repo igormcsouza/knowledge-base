@@ -44,7 +44,7 @@ extra:
       link: https://igormcsouza.github.io/
       name: Personal Website
 
-copyright: Copyright &copy; 2024 Igor Souza
+copyright: Copyright &copy; 2025 Igor Souza
 
 plugins:
   - search
@@ -64,15 +64,4 @@ markdown_extensions:
       alternate_style: true
   - attr_list
   - md_in_html
-
-nav:
-  - Home: index.md
-  - Getting Started: getting-started.md
-  - Knowledge Base:
-      - Overview: knowledge/index.md
-      - Python:
-          - Tips & Tricks: knowledge/python-tips.md
-          - Flask Framework: knowledge/python-flask-framework.md
-      - Git:
-          - Tricks & Commands: knowledge/git-tricks.md
-          - Configurations: knowledge/git-configurations.md
+      
