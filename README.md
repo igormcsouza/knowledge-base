@@ -52,22 +52,6 @@ Want to add content? Check out the [Getting Started guide](https://igormcsouza.g
 - Follow content guidelines
 - Preview changes locally
 
-## Project Structure
-
-```
-├── docs/                    # All documentation content
-│   ├── index.md            # Homepage
-│   ├── getting-started.md  # Contribution guide
-│   ├── python-tips.md      # Python knowledge
-│   ├── python-flask-framework.md
-│   ├── git-tricks.md       # Git commands
-│   ├── git-configurations.md
-│   └── tags.md             # Auto-generated tags page
-├── mkdocs.yml              # MkDocs configuration
-├── .github/workflows/      # CI/CD for auto-deployment
-└── site/                   # Generated site (ignored)
-```
-
 ## Deployment
 
 The site is automatically deployed to GitHub Pages via GitHub Actions when changes are merged to the main branch.

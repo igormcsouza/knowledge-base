@@ -76,4 +76,3 @@ nav:
       - Git:
           - Tricks & Commands: knowledge/git-tricks.md
           - Configurations: knowledge/git-configurations.md
-  - Tags: tags.md

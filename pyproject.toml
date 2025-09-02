@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "knowledge-base"
-version = "0.1.0"
+version = "0.0.0"
 description = "My knowledge Base"
 authors = ["Igor Souza <igormcsouza@gmail.com>"]
 readme = "README.md"
@@ -9,7 +9,6 @@ packages = [{include = "knowledge_base"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 mkdocs-material = "^9.5.0"
-
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^3.6.2"
