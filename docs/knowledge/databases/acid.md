@@ -124,5 +124,7 @@ media "like" counter can tolerate eventual consistency).
 
 ## Related Articles
 
+- [Idempotency](idempotency.md) — a distinct guarantee from ACID: a
+  transaction can be fully ACID-compliant and still be unsafe to retry.
 - [Event-Driven Architecture](../architecture/event-driven-architecture.md) —
   message brokers make different consistency trade-offs than ACID databases.
