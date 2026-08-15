@@ -197,3 +197,6 @@ and stable.
 - [API Optimization & Resilience](api-optimization-resilience.md) — the
   performance/reliability concerns that come after the N+1/fetching shape
   itself is fixed.
+- [Query Performance Bottlenecks](../databases/query-performance-bottlenecks.md)
+  — reading `EXPLAIN` output and diagnosing the slow queries an N+1 bug
+  produces, one level below the API layer.
