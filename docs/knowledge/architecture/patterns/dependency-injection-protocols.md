@@ -185,3 +185,7 @@ behavior between related classes.
   where injected, protocol-typed dependencies tend to live.
 - [Factory Pattern in Python](factory-pattern.md) — factories are often what
   actually produces the concrete objects injected behind a `Protocol`.
+- [Dependency Inversion via Interfaces and Abstract Classes](dependency-inversion-abstract-classes.md)
+  — the architectural principle (DIP) this pattern satisfies, and the
+  nominal-typing (`ABC`) alternative for when the abstraction needs shared
+  behavior or explicit enforcement.
