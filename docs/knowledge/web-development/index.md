@@ -15,6 +15,10 @@ Frameworks, patterns, and practical notes for building and shipping web applicat
 
 - [Flask Framework](flask-framework.md) — basic setup, project structure, CLI commands,
   and packaging a Flask app as a desktop application.
+- [FastAPI Event Loop](fastapi-event-loop.md) — where sync and async routes
+  actually run, and how to deal with background tasks.
+- [TypeScript Fundamentals](typescript-fundamentals.md) — typing properly:
+  interfaces, generics, narrowing, and utility types.
 
 ## Contributing
 

@@ -16,6 +16,8 @@ Python day to day.
 
 - [Python Tips & Tricks](python-tips.md) — name mangling, scopes and closures,
   concurrency vs. parallelism, threading vs. multiprocessing.
+- [UV: Managing Python Environments and Projects](uv-python-tooling.md) — a
+  fast, all-in-one replacement for pip, pyenv, virtualenv, and pip-tools.
 
 ## Contributing
 

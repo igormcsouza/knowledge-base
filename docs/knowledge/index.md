@@ -22,6 +22,12 @@ documentation, tips, and tricks, organized by area of interest.
 - **[Web Development](web-development/index.md)** — frameworks and patterns for building
   web applications.
 - **[DevOps & Tools](devops-tools/index.md)** — version control, tooling, and workflows.
+- **[Architecture](architecture/index.md)** — software architecture patterns and
+  system design.
+- **[Databases](databases/index.md)** — database fundamentals like transactions and
+  consistency guarantees.
+- **[Algorithms](algorithms/index.md)** — classic algorithms and problem-solving
+  techniques.
 
 Looking for something that doesn't fit here? See [Contributing](../contributing.md) — new
 categories are added the moment there's a first article for them.

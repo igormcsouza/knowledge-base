@@ -27,6 +27,9 @@ Otherwise, it's a knowledge-base topic. Does it fit an existing category?
   → docs/knowledge/python/
   → docs/knowledge/web-development/
   → docs/knowledge/devops-tools/
+  → docs/knowledge/architecture/
+  → docs/knowledge/databases/
+  → docs/knowledge/algorithms/
 
 Doesn't fit any of those?
   → Create a new category: docs/knowledge/<new-category>/index.md
@@ -36,6 +39,14 @@ Doesn't fit any of those?
 
 There's no fixed ceiling on categories — when a topic doesn't belong anywhere, that's the
 signal to create a new one, not to force-fit it or leave it flat at the top level.
+
+A category can also grow a **subfolder** once it accumulates several articles that share a
+more specific theme — e.g. `docs/knowledge/architecture/patterns/` for code-level design
+patterns, distinct from the broader architectural styles in `architecture/` itself. Give the
+subfolder its own `index.md` (same shape as a category's), and link it from the parent
+category's `index.md`. Navigation is still automatic — mkdocs nests subfolders under their
+parent with no config changes needed. Don't reach for this by default; it's worth it only
+once a category has enough related articles that a sub-grouping actually clarifies things.
 
 ## 2. Navigation Is Automatic
 
