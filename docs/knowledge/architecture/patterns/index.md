@@ -22,6 +22,9 @@ architectural styles in the parent [Architecture](../index.md) section
   why that avoids hierarchy hell.
 - [Factory Pattern in Python](factory-pattern.md) — from a plain function to
   registries to `@classmethod` alternative constructors.
+- [Dependency Inversion via Interfaces and Abstract Classes](dependency-inversion-abstract-classes.md)
+  — the SOLID principle behind DI, and `abc.ABC` as the nominal-typing way
+  to express the abstraction it requires.
 
 ## Contributing
 

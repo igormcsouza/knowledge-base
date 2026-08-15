@@ -26,6 +26,7 @@ Otherwise, it's a knowledge-base topic. Does it fit an existing category?
   → docs/knowledge/machine-learning/
   → docs/knowledge/python/
   → docs/knowledge/web-development/
+  → docs/knowledge/testing/
   → docs/knowledge/devops-tools/
   → docs/knowledge/architecture/
   → docs/knowledge/databases/

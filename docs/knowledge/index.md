@@ -21,6 +21,8 @@ documentation, tips, and tricks, organized by area of interest.
 - **[Python](python/index.md)** — language-level tips, idioms, and gotchas.
 - **[Web Development](web-development/index.md)** — frameworks and patterns for building
   web applications.
+- **[Testing](testing/index.md)** — unit, integration, and end-to-end testing practices
+  and tooling.
 - **[DevOps & Tools](devops-tools/index.md)** — version control, tooling, and workflows.
 - **[Architecture](architecture/index.md)** — software architecture patterns and
   system design.
