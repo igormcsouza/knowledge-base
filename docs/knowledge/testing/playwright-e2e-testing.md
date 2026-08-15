@@ -77,7 +77,7 @@ pytest --headed                    # watch it run instead of headless
 Because `page`/`context` are `function`-scoped by default, every test gets a clean browser
 tab with no cookies or storage from a previous test — the browser-level equivalent of not
 letting unit tests share mutable state (see
-[Pytest Fixtures](pytest-fixtures-monkeypatch.md#avoid-test-interdependence)).
+[Pytest Fixtures](pytest-fixtures-monkeypatch.md#unit-test-standards)).
 
 ## Locators and Auto-Waiting
 

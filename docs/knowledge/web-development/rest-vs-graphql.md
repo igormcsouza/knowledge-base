@@ -85,37 +85,37 @@ round-trip.
 Rendering a user's profile page with their five most recent posts and each
 post's comment count.
 
-=== "REST"
+### REST
 
-    ```text
-    GET /users/42
-    GET /users/42/posts?limit=5
-    GET /posts/17/comments/count
-    GET /posts/18/comments/count
-    GET /posts/19/comments/count
-    GET /posts/20/comments/count
-    GET /posts/21/comments/count
-    ```
+```text
+GET /users/42
+GET /users/42/posts?limit=5
+GET /posts/17/comments/count
+GET /posts/18/comments/count
+GET /posts/19/comments/count
+GET /posts/20/comments/count
+GET /posts/21/comments/count
+```
 
-    Six round-trips, and the user/post responses likely carry fields the
-    profile page never renders (bio, email, post body, timestamps).
+Six round-trips, and the user/post responses likely carry fields the
+profile page never renders (bio, email, post body, timestamps).
 
-=== "GraphQL"
+### GraphQL
 
-    ```graphql
-    query {
-      user(id: 42) {
-        name
-        avatarUrl
-        posts(limit: 5) {
-          title
-          commentCount
-        }
-      }
+```graphql
+query {
+  user(id: 42) {
+    name
+    avatarUrl
+    posts(limit: 5) {
+      title
+      commentCount
     }
-    ```
+  }
+}
+```
 
-    One request, one round-trip, exactly the fields the page needs.
+One request, one round-trip, exactly the fields the page needs.
 
 ## GraphQL's Own N+1 Problem
 

@@ -129,7 +129,7 @@ mutable, session-scoped fixture like this needs its *data* reset carefully betwe
 
 A session-scoped database means every test shares the same schema and, without care, the
 same rows — which reintroduces exactly the test-interdependence problem
-[unit test standards](pytest-fixtures-monkeypatch.md#avoid-test-interdependence) warn
+[unit test standards](pytest-fixtures-monkeypatch.md#unit-test-standards) warn
 against, just at the database layer. The standard fix is to wrap each test in a
 transaction that's rolled back at the end, so the database is untouched no matter what the
 test did to it:

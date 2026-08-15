@@ -162,7 +162,7 @@ logging.config.dictConfig(LOGGING_CONFIG)
 ```
 
 This is also what makes it easy to load different logging configs per environment (verbose
-+ pretty-printed locally, structured JSON at `INFO` in production) from a config file
+and pretty-printed locally, structured JSON at `INFO` in production) from a config file
 instead of branching imperative setup code.
 
 ## Context Propagation with `contextvars`

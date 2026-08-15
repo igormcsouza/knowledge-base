@@ -89,7 +89,7 @@ results = await asyncio.gather(fetch("a"), fetch("b"), fetch("c"))
 By default, if one of the awaited coroutines raises, `gather` propagates that exception —
 but the *other* still-running tasks are **not** automatically cancelled; they keep running
 in the background, and you generally lose track of them and their exceptions (they're only
-retrievable if you kept references and don't await them again). `gather(..., 
+retrievable if you kept references and don't await them again). `gather(...,
 return_exceptions=True)` instead collects exceptions *as results* in the returned list,
 which avoids this leak but pushes error handling onto you at the call site.
 
