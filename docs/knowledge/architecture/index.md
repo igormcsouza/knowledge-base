@@ -19,6 +19,11 @@ within a service, and how services communicate with each other.
   of the router.
 - [Event-Driven Architecture: Kafka vs. SQS vs. RabbitMQ](event-driven-architecture.md)
   — event-driven basics and how the three major messaging systems compare.
+- [Dependency Injection with Protocols](dependency-injection-protocols.md) —
+  structural typing with `typing.Protocol` instead of ABC inheritance, and
+  why that avoids hierarchy hell.
+- [Factory Pattern in Python](factory-pattern.md) — from a plain function to
+  registries to `@classmethod` alternative constructors.
 
 ## Contributing
 

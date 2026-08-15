@@ -151,3 +151,8 @@ domain rules (no duplicate titles, notify followers, etc.).
   services stay decoupled, this time across process boundaries.
 - [FastAPI Event Loop](../web-development/fastapi-event-loop.md) — how the
   router/service code you write actually gets executed.
+- [Dependency Injection with Protocols](dependency-injection-protocols.md) —
+  typing a service's dependencies without forcing them into a shared class
+  hierarchy.
+- [Factory Pattern in Python](factory-pattern.md) — a natural place for the
+  construction logic a service's dependencies need.
