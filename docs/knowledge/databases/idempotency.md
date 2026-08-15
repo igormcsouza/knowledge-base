@@ -134,3 +134,6 @@ what happens when the *same* transaction runs a second time.
   — at-least-once delivery is exactly where idempotent consumers matter most.
 - [Kafka Consumers Behind a FastAPI API on Kubernetes](../architecture/kafka-consumers-fastapi-kubernetes.md)
   — a concrete case for designing consumers around at-least-once delivery.
+- [AWS Lambda](../devops-tools/aws/lambda.md) and
+  [Amazon SQS](../devops-tools/aws/sqs.md) — a concrete AWS-specific case
+  where at-least-once delivery makes idempotent processing mandatory.

@@ -138,3 +138,5 @@ scales automatically.
 - [Kafka Consumers Behind a FastAPI API on Kubernetes](kafka-consumers-fastapi-kubernetes.md)
   — applying Kafka's consumer-group model to a real FastAPI/Kubernetes
   deployment.
+- [Amazon SQS](../devops-tools/aws/sqs.md) — the practical mechanics of
+  actually using the SQS side of this comparison.

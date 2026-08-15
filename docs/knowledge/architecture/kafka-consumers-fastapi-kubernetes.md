@@ -259,3 +259,6 @@ moves cheap instead of a rewrite.
   responsibility" instinct applied to a consumer instead of a router.
 - [Idempotency](../databases/idempotency.md) — the general principle behind
   designing for Kafka's at-least-once delivery.
+- [Kubernetes Fundamentals](../devops-tools/kubernetes.md) — the pod/scaling
+  concepts (Deployments, HPA, self-healing) this article's Kubernetes points
+  build on.
