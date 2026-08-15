@@ -57,7 +57,7 @@ steps, one per layer, batched across many examples at once.
 
 | Name | Formula | Notes |
 |---|---|---|
-| Sigmoid | $\sigma(z) = \dfrac{1}{1 + e^{-z}}$ | Squashes to $(0, 1)$; saturates for large \| z \|, which slows learning (vanishing gradient). |
+| Sigmoid | $\sigma(z) = \dfrac{1}{1 + e^{-z}}$ | Squashes to $(0, 1)$; saturates for large $\lvert z \rvert$, which slows learning (vanishing gradient). |
 | Tanh | $\tanh(z) = \dfrac{e^z - e^{-z}}{e^z + e^{-z}}$ | Squashes to $(-1, 1)$; zero-centered, same saturation issue as sigmoid. |
 | ReLU | $\text{ReLU}(z) = \max(0, z)$ | Cheap, doesn't saturate for $z > 0$; default choice for hidden layers in most modern networks. |
 | Softmax | $\text{softmax}(\mathbf{z})_i = \dfrac{e^{z_i}}{\sum_j e^{z_j}}$ | Turns a vector of scores into a probability distribution; used on the output layer for multi-class classification. |

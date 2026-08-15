@@ -29,13 +29,15 @@ it's worth capturing.
 
 1. Create a new file directly under `docs/troubleshooting/`, named for the problem (e.g.
    `flask-cli-command-not-found.md`, `poetry-lock-conflict.md`).
-2. Start from [template.md](template.md) — copy its structure (Problem, Environment, Root
+
+1. Start from [template.md](template.md) — copy its structure (Problem, Environment, Root
    Cause, Fix, Prevention).
-3. Add tags (at minimum the relevant technology, plus `troubleshooting`).
+
+1. Add tags (at minimum the relevant technology, plus `troubleshooting`).
 
 See [Contributing](../contributing.md) for the general file/naming conventions shared
 across the whole knowledge base.
 
 ## Entries
 
-*(Empty for now — the first real fix logged here starts the list.)*
+Empty for now — the first real fix logged here starts the list.

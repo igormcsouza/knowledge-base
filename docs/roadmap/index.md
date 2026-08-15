@@ -60,6 +60,8 @@ What moved, what you worked on, what's next.
 
 1. Edit the matrix row(s) that changed — bump the "Current" level and add a note on what
    drove the change.
-2. Add a new "Day X Log" entry summarizing the update (increment X from the last entry).
-3. No need to touch anything outside this file — see [Contributing](../contributing.md)
+
+1. Add a new "Day X Log" entry summarizing the update (increment X from the last entry).
+
+1. No need to touch anything outside this file — see [Contributing](../contributing.md)
    for the knowledge base's general conventions.
