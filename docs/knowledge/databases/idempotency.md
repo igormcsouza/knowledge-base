@@ -132,3 +132,5 @@ what happens when the *same* transaction runs a second time.
   from what happens if it's retried.
 - [Event-Driven Architecture](../architecture/event-driven-architecture.md)
   — at-least-once delivery is exactly where idempotent consumers matter most.
+- [Kafka Consumers Behind a FastAPI API on Kubernetes](../architecture/kafka-consumers-fastapi-kubernetes.md)
+  — a concrete case for designing consumers around at-least-once delivery.

@@ -135,3 +135,6 @@ scales automatically.
 - [ACID](../databases/acid.md) — message brokers typically trade strong
   consistency for availability/throughput, the opposite end of the spectrum
   from ACID databases.
+- [Kafka Consumers Behind a FastAPI API on Kubernetes](kafka-consumers-fastapi-kubernetes.md)
+  — applying Kafka's consumer-group model to a real FastAPI/Kubernetes
+  deployment.

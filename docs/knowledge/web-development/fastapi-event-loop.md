@@ -142,3 +142,6 @@ in its own process(es) entirely separate from the web workers.
 - [Python Tips & Tricks](../python/python-tips.md) — threading vs.
   multiprocessing vs. the GIL, useful background for why this threadpool
   dispatch works the way it does.
+- [Kafka Consumers Behind a FastAPI API on Kubernetes](../architecture/kafka-consumers-fastapi-kubernetes.md)
+  — a concrete case for `asyncio.create_task` plus the lifespan handler:
+  running a background consumer loop alongside the API.

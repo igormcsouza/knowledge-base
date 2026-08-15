@@ -24,6 +24,9 @@ within a service, and how services communicate with each other.
   why that avoids hierarchy hell.
 - [Factory Pattern in Python](factory-pattern.md) — from a plain function to
   registries to `@classmethod` alternative constructors.
+- [Kafka Consumers Behind a FastAPI API on Kubernetes](kafka-consumers-fastapi-kubernetes.md)
+  — consumer groups, background tasks vs. blocking startup, pod-local state,
+  and when to split the consumer into its own deployment.
 
 ## Contributing
 
