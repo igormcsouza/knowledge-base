@@ -22,12 +22,18 @@ within a service, and how services communicate with each other.
 - [Kafka Consumers Behind a FastAPI API on Kubernetes](kafka-consumers-fastapi-kubernetes.md)
   — consumer groups, background tasks vs. blocking startup, pod-local state,
   and when to split the consumer into its own deployment.
+- [Dependency Inversion via Interfaces and Abstract Classes](dependency-inversion-abstract-classes.md)
+  — the SOLID principle behind DI, and `abc.ABC` as the nominal-typing way
+  to express the abstraction it requires.
 
 ## Patterns
 
 Code-level design patterns — how you structure and construct objects within
 a service — live in their own [Patterns](patterns/index.md) subsection,
-separate from the broader architectural styles above:
+separate from the broader architectural styles above. Dependency Injection
+and the Factory Pattern below are both concrete, code-level ways of
+achieving the [Dependency Inversion](dependency-inversion-abstract-classes.md)
+principle described above them:
 
 - [Dependency Injection with Protocols](patterns/dependency-injection-protocols.md)
   — structural typing with `typing.Protocol` instead of ABC inheritance, and

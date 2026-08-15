@@ -119,7 +119,7 @@ class OrderRepository(ABC):
 
 This knowledge base already covers the other common way to define the
 abstraction: `typing.Protocol`, in
-[Dependency Injection with Protocols](dependency-injection-protocols.md).
+[Dependency Injection with Protocols](patterns/dependency-injection-protocols.md).
 Both are legitimate ways to satisfy DIP — the choice is about **nominal
 vs. structural** typing, not about whether DIP is being followed:
 
@@ -165,17 +165,24 @@ the latter would just be `psycopg2`'s shape wearing an ABC costume.
   needs, not around what one specific low-level implementation happens to
   expose — otherwise nothing was actually inverted.
 - `Protocol` (structural) is the other valid way — see
-  [Dependency Injection with Protocols](dependency-injection-protocols.md)
+  [Dependency Injection with Protocols](patterns/dependency-injection-protocols.md)
   for when that's the better fit.
+
+## Patterns That Implement This Principle
+
+DIP is the *goal* — which direction dependencies point. The following
+code-level patterns, documented in the [Patterns](patterns/index.md)
+subsection, are concrete ways to actually achieve it:
+
+- [Dependency Injection with Protocols](patterns/dependency-injection-protocols.md)
+  — the structural-typing alternative to ABCs, and why it avoids hierarchy
+  hell for pure-capability contracts.
+- [Factory Pattern in Python](patterns/factory-pattern.md) — factories are
+  often what constructs the concrete low-level implementation handed to a
+  DIP-respecting constructor.
 
 ## Related Articles
 
-- [Dependency Injection with Protocols](dependency-injection-protocols.md)
-  — the structural-typing alternative to ABCs, and why it avoids hierarchy
-  hell for pure-capability contracts.
-- [DDD & the Service Layer](../ddd-service-layer.md) — the service layer is
+- [DDD & the Service Layer](ddd-service-layer.md) — the service layer is
   typically the "high-level module" whose dependencies get inverted this
   way.
-- [Factory Pattern in Python](factory-pattern.md) — factories are often
-  what constructs the concrete low-level implementation handed to a
-  DIP-respecting constructor.
