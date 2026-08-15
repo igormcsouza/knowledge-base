@@ -12,6 +12,7 @@ theme:
     - navigation.tabs
     - navigation.sections
     - navigation.expand
+    - navigation.indexes
     - navigation.path
     - navigation.top
     - navigation.footer
