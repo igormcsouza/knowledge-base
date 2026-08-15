@@ -189,5 +189,5 @@ factory that builds the object a different way than the plain constructor.
 - [Dependency Injection with Protocols](dependency-injection-protocols.md)
   — factories are typically what produces the protocol-typed objects that
   get injected.
-- [DDD & the Service Layer](ddd-service-layer.md) — a natural place for
+- [DDD & the Service Layer](../ddd-service-layer.md) — a natural place for
   factory functions that build domain objects for a service to use.

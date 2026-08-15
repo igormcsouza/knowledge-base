@@ -181,7 +181,7 @@ behavior between related classes.
 
 ## Related Articles
 
-- [DDD & the Service Layer](ddd-service-layer.md) — services are exactly
+- [DDD & the Service Layer](../ddd-service-layer.md) — services are exactly
   where injected, protocol-typed dependencies tend to live.
 - [Factory Pattern in Python](factory-pattern.md) — factories are often what
   actually produces the concrete objects injected behind a `Protocol`.
