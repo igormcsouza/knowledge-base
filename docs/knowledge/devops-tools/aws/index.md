@@ -26,6 +26,8 @@ service catalog.
   URLs, event notifications, lifecycle rules.
 - [Amazon SQS](sqs.md) — batching, long polling, dead-letter queues, and the
   Lambda integration specifics.
+- [Amazon CloudWatch](cloudwatch.md) — Logs and Logs Insights, Metrics and
+  custom metrics, Alarms, and Lambda's automatic structured logging.
 
 ## Contributing
 
