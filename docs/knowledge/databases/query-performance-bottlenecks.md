@@ -161,8 +161,8 @@ tends to trigger silently — looping over `order.customer.name` for 50 orders
 issues 50 separate queries unless the relationship was eagerly loaded up
 front. The API-shaped version of this same problem — a GraphQL resolver or a
 REST endpoint fanning out into per-item requests — is covered separately in
-[N+1 Queries in APIs](../web-development/n-plus-one-queries.md); the root
-cause and fix are the same idea, just one layer up the stack.
+[API Pitfalls: Over-, Under-Fetching & N+1](../web-development/api-pitfalls-n-plus-one.md);
+the root cause and fix are the same idea, just one layer up the stack.
 
 ## Common Anti-Patterns
 
@@ -282,8 +282,8 @@ rare 3-second outlier.
   is left-to-right only; covering indexes avoid touching the table at all.
 - N+1 at the database level is one query for a list plus N queries for
   related rows — fix with a join or a single `WHERE id IN (...)`; see
-  [N+1 Queries in APIs](../web-development/n-plus-one-queries.md) for the
-  same problem one layer up.
+  [API Pitfalls: Over-, Under-Fetching & N+1](../web-development/api-pitfalls-n-plus-one.md)
+  for the same problem one layer up.
 - Common anti-patterns: `SELECT *`, unindexed foreign keys, functions
   wrapping indexed columns, and `OFFSET`-based pagination that gets slower
   the deeper a user pages.
