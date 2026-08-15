@@ -40,4 +40,4 @@ across the whole knowledge base.
 
 ## Entries
 
-Empty for now — the first real fix logged here starts the list.
+- [Browser Keeps Prompting to Log In on Every Article (polyfill.io)](polyfill-io-login-prompt.md)
