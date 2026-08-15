@@ -39,8 +39,13 @@ Your content here...
 
 ### Content Organization
 
-- **Navigation**: Update the site configuration nav section when adding new articles
-- **Categories**: Organize content by technology/topic
+- **Navigation**: Fully automatic — `mkdocs.yml` has no `nav:` section, so the site menu
+  is generated from the folder structure. Never add or suggest a `nav:` block; just place
+  the file in the right folder.
+- **Categories**: Content lives under `docs/knowledge/<category>/`, one folder per area of
+  interest (currently: `machine-learning`, `python`, `web-development`, `devops-tools`),
+  each with its own `index.md`. `docs/troubleshooting/` and `docs/roadmap/` are top-level
+  sections with their own format (see `docs/contributing.md`).
 - **Tags**: Use consistent tags for searchability and categorization
 - **Cross-references**: Link related articles using relative paths
 
@@ -87,9 +92,11 @@ function_call()
 
 ### Content Creation Process
 
-1. Create new markdown files in appropriate content subdirectories
+1. Create new markdown files in the appropriate `docs/knowledge/<category>/` subdirectory
+   (or a new category folder with its own `index.md` if none fits — see
+   `docs/contributing.md`)
 
-1. Add navigation entry to site configuration if creating new sections
+1. Add a link to the new article in that category's `index.md`
 
 1. Use consistent tags and follow markdown conventions
 
@@ -97,22 +104,11 @@ function_call()
 
 1. Commit changes and create pull request
 
-### Navigation Configuration
+### Navigation
 
-When adding new content, update the nav section in the site configuration file:
-
-```yaml
-nav:
-
-  - Home: index.md
-  - Getting Started: getting-started.md
-  - Knowledge Base:
-      - Overview: knowledge/index.md
-      - [Category]:
-          - [Topic]: knowledge/topic-name.md
-          - [New Article]: knowledge/new-topic.md  # Add here
-
-```
+No `mkdocs.yml` changes needed for routine content — see "Content Organization" above.
+`docs/contributing.md` is the canonical, up-to-date guide for where new content goes;
+prefer pointing users there over restating the rules here.
 
 ## Common Patterns and Examples
 
@@ -190,13 +186,15 @@ Use these consistent tag categories:
 
 When helping with this project:
 
-1. **Content Creation**: Suggest appropriate file locations, tags, and navigation entries
+1. **Content Creation**: Suggest appropriate file locations and tags; point to
+   `docs/contributing.md` for the full decision process
 
 1. **Markdown**: Use project-specific extensions and formatting conventions
 
 1. **Structure**: Follow the established organization pattern
 
-1. **Navigation**: Always suggest updating site configuration when adding new content
+1. **Navigation**: Automatic from folder structure — never suggest editing `mkdocs.yml`
+   for routine content additions
 
 1. **Tags**: Recommend consistent, searchable tags
 

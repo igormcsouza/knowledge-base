@@ -8,12 +8,16 @@ A comprehensive collection of software engineering knowledge, tips, and tricks g
 
 # What You'll Find Here
 
-This knowledge base covers various topics including:
+This knowledge base is organized around Igor's areas of interest as a software engineer
+specialized in machine learning and AI:
 
-- **Python Development**: Tips, tricks, and best practices for Python programming
-- **Web Frameworks**: In-depth guides on frameworks like Flask
-- **Version Control**: Git commands, configurations, and workflows
-- **And much more!**
+- **[Machine Learning & AI](knowledge/machine-learning/index.md)**: The math and models behind ML — core specialty
+- **[Python](knowledge/python/index.md)**: Language tips, idioms, and gotchas
+- **[Web Development](knowledge/web-development/index.md)**: Frameworks like Flask
+- **[DevOps & Tools](knowledge/devops-tools/index.md)**: Git, tooling, and workflows
+- **[Roadmap](roadmap/index.md)**: A competency matrix tracking progress toward Senior
+- **[Troubleshooting](troubleshooting/index.md)**: Real problems hit and how they got fixed
+- **And more, as new areas come up!**
 
 ## Navigation
 
@@ -21,7 +25,9 @@ Use the navigation menu above to explore different topics, or use the search fun
 
 ## Getting Started
 
-New to this knowledge base? Check out the [Getting Started](getting-started.md) guide to learn how to:
+New to this knowledge base? Check out the [Getting Started](getting-started.md) guide to
+navigate and preview the site, or jump straight to [Contributing](contributing.md) to
+learn how to add new content:
 
 - Navigate the documentation
 - Use tags for efficient searching

@@ -81,3 +81,7 @@ git diff <branch1>..<branch2> --name-only
 | `git show --name-only` | Show files in latest commit |
 | `git log --diff-filter=D --summary` | Show deleted files |
 | `git diff <commit1> <commit2> --name-only` | Compare commits |
+
+## Related Articles
+
+- [Git Configurations](git-configurations.md)

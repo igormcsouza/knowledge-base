@@ -153,3 +153,7 @@ git config --global alias.last "log -1 HEAD"
 
 echo "Git configuration complete!"
 ```
+
+## Related Articles
+
+- [Git Tricks & Commands](git-tricks.md)

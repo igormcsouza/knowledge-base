@@ -1,5 +1,5 @@
 site_name: Igor's Knowledge Base
-site_description: A collection of software engineering knowledge and tips
+site_description: A collection of software engineering knowledge and tips, with a focus on machine learning and AI
 site_author: Igor Souza
 site_url: https://igormcsouza.github.io/knowledge-base/
 
@@ -44,7 +44,7 @@ extra:
       link: https://igormcsouza.github.io/
       name: Personal Website
 
-copyright: Copyright &copy; 2025 Igor Souza
+copyright: Copyright &copy; 2025-2026 Igor Souza
 
 plugins:
   - search
@@ -62,5 +62,12 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
   - attr_list
   - md_in_html
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
