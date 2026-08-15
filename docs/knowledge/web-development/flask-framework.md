@@ -86,11 +86,46 @@ python app.py
 **What happens if my application has many pages?**
 All pages of the Flask application will open normally in the contained window, unless they have a different hostname (like links to external applications/web pages).
 
-!!! todo
-    Create an example demonstrating Flask commands usage.
+## Flask CLI Commands in Practice
+
+Flask lets you register custom CLI commands with `@app.cli.command()`, which is handy for
+routine operations (database seeding, cache clearing, one-off admin tasks) without wiring
+up a separate script runner:
+
+```python
+import click
+from flask import Flask
+
+app = Flask(__name__)
+
+
+@app.cli.command("seed-db")
+@click.option("--count", default=10, help="Number of sample records to create.")
+def seed_db(count: int) -> None:
+    """Populate the database with sample data."""
+    for i in range(count):
+        print(f"Creating record {i + 1}/{count}")
+    print("Done seeding the database.")
+```
+
+Run it from the terminal the same way you'd run the dev server, using the command name you
+registered:
+
+```bash
+flask --app app seed-db --count 5
+```
+
+This is the same mechanism referenced in "Use Commands for Common Flask Actions" above —
+each command lives next to the feature it operates on (e.g., inside the relevant blueprint
+module) rather than in one large script.
 
 ## Additional Resources
 
 - [Flask Documentation](https://flask.palletsprojects.com/)
 - [Flask Blueprints](https://flask.palletsprojects.com/en/2.3.x/blueprints/)
+- [Flask CLI](https://flask.palletsprojects.com/en/latest/cli/)
 - [PyWebView](https://pywebview.flowrl.com/)
+
+## Related Articles
+
+- [Python Tips & Tricks](../python/python-tips.md)

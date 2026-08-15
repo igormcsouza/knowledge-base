@@ -6,12 +6,15 @@ A modern, searchable knowledge base built with [MkDocs Material](https://squidfu
 
 ## What's Inside
 
-This repository contains comprehensive documentation on:
+Organized by area of interest, with a focus on machine learning and AI:
 
-- **Python Development**: Tips, tricks, and best practices
-- **Web Frameworks**: Flask guides and tutorials
-- **Version Control**: Git commands, configurations, and workflows
-- **And much more!**
+- **Machine Learning & AI**: The math and models behind ML — core specialty
+- **Python**: Language tips, idioms, and gotchas
+- **Web Development**: Flask guides and tutorials
+- **DevOps & Tools**: Git commands, configurations, and workflows
+- **Roadmap**: A competency matrix tracking progress toward Senior
+- **Troubleshooting**: Real problems hit and how they got fixed
+- **And more, as new areas come up!**
 
 ## Features
 
@@ -48,8 +51,9 @@ This repository contains comprehensive documentation on:
 
 ### Contributing
 
-Want to add content? Check out the [Getting Started guide](https://igormcsouza.github.io/knowledge-base/getting-started/) to learn how to:
+Want to add content? Check out the [Contributing guide](https://igormcsouza.github.io/knowledge-base/contributing/) to learn how to:
 
+- Decide where a new topic belongs (or create a new category)
 - Add new pages and articles
 - Use tags effectively
 - Follow content guidelines
