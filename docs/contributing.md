@@ -164,8 +164,8 @@ to get subtly wrong in raw markdown.
 Two sections have their own dedicated format, different from a standard topic article:
 
 - **[Troubleshooting](troubleshooting/index.md)** — one file per fixed problem, using
-  [the troubleshooting template](troubleshooting/template.md) (Problem / Environment /
-  Root Cause / Fix / Prevention).
+  [the entry template in the troubleshooting index](troubleshooting/index.md#how-to-add-one)
+  (Problem / Environment / Root Cause / Fix / Prevention).
 - **[Roadmap](roadmap/index.md)** — a single page you edit in place (competency matrix +
   Day X log), not a new file per update.
 
