@@ -13,7 +13,10 @@ tags:
 Code-level design patterns: reusable solutions for structuring and
 constructing objects within a service, as distinct from the broader
 architectural styles in the parent [Architecture](../index.md) section
-(how a whole system is organized, how services communicate).
+(how a whole system is organized, how services communicate). The
+architectural *goal* these two patterns exist to satisfy —
+[Dependency Inversion](../dependency-inversion-abstract-classes.md) — lives
+one level up, in Architecture itself, rather than here.
 
 ## Articles
 
@@ -22,9 +25,6 @@ architectural styles in the parent [Architecture](../index.md) section
   why that avoids hierarchy hell.
 - [Factory Pattern in Python](factory-pattern.md) — from a plain function to
   registries to `@classmethod` alternative constructors.
-- [Dependency Inversion via Interfaces and Abstract Classes](dependency-inversion-abstract-classes.md)
-  — the SOLID principle behind DI, and `abc.ABC` as the nominal-typing way
-  to express the abstraction it requires.
 
 ## Contributing
 

@@ -179,13 +179,20 @@ behavior between related classes.
 - Keep ABCs for genuine shared implementation; use `Protocol` for pure
   behavioral contracts, which is what most DI actually needs.
 
+## Related Architecture Goal
+
+This pattern is one way of satisfying the
+[Dependency Inversion Principle](../dependency-inversion-abstract-classes.md)
+— the architectural rule that high-level and low-level modules should both
+depend on an abstraction, instead of the high-level module depending
+directly on the low-level one. `Protocol` is the structural-typing way to
+define that abstraction; the article also covers the nominal-typing (`ABC`)
+alternative for when the abstraction needs shared behavior or explicit
+enforcement.
+
 ## Related Articles
 
 - [DDD & the Service Layer](../ddd-service-layer.md) — services are exactly
   where injected, protocol-typed dependencies tend to live.
 - [Factory Pattern in Python](factory-pattern.md) — factories are often what
   actually produces the concrete objects injected behind a `Protocol`.
-- [Dependency Inversion via Interfaces and Abstract Classes](dependency-inversion-abstract-classes.md)
-  — the architectural principle (DIP) this pattern satisfies, and the
-  nominal-typing (`ABC`) alternative for when the abstraction needs shared
-  behavior or explicit enforcement.

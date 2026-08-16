@@ -184,6 +184,15 @@ factory that builds the object a different way than the plain constructor.
   factory pattern worth reaching for before building a separate factory
   class.
 
+## Related Architecture Goal
+
+The factory pattern is one way to produce the concrete implementation
+handed to a constructor that depends only on an abstraction — the
+[Dependency Inversion Principle](../dependency-inversion-abstract-classes.md)
+in practice. The factory is what knows about concrete types like
+`EmailNotifier` or `SlackNotifier`, so that everything else can depend on
+the `Notifier` abstraction instead.
+
 ## Related Articles
 
 - [Dependency Injection with Protocols](dependency-injection-protocols.md)
