@@ -84,7 +84,7 @@ Findings, in order:
    symptom (a separate, unrelated `mt7925e` deauth/reassoc issue was also present in this
    environment, traced to stale firmware — but it wasn't what caused the Expo/Steam Link
    drops).
-2. **Latency spiked identically on the gateway hop and on `8.8.8.8` at the same
+1. **Latency spiked identically on the gateway hop and on `8.8.8.8` at the same
    moments**, proving the bottleneck was the local WiFi link, not the ISP or anything past
    the router:
 
@@ -99,7 +99,7 @@ Findings, in order:
     icmp_seq=123 time=731 ms
     ```
 
-3. **The interface's queueing discipline (qdisc) was `noqueue`:**
+1. **The interface's queueing discipline (qdisc) was `noqueue`:**
 
     ```text
     $ tc qdisc show dev wlp4s0
@@ -114,12 +114,12 @@ Findings, in order:
     however long it takes to drain the backlog. This is the textbook definition of
     **bufferbloat**.
 
-4. **Why it only shows up with Expo/Steam Link and not normal browsing:** ordinary web
+1. **Why it only shows up with Expo/Steam Link and not normal browsing:** ordinary web
    traffic is bursty and asymmetric — it doesn't sustain enough continuous throughput to
    fill an unbounded queue. Expo's bundle transfer and, especially, Steam Link's
    continuous video stream do sustain load, so they're what exposes the problem.
 
-5. **Why the underlying WiFi chipset/driver matters less than it seems:** this is not a
+1. **Why the underlying WiFi chipset/driver matters less than it seems:** this is not a
    `mt7925e`-specific bug. WiFi interfaces on Linux default to `noqueue` because the
    `mac80211` stack does its own internal per-station/per-TID queueing for 802.11e QoS
    and frame aggregation — stacking a second dumb `tc` queue on top used to be considered
