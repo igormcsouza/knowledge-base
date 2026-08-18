@@ -213,7 +213,7 @@ sustained heavy jitter (100ms-1500ms) that didn't fully resolve for the rest of 
 session — worse than plain bufferbloat, and `tc qdisc show` confirmed `fq_codel` was
 still active throughout, so queue management wasn't the issue this time.
 
-### Root Cause
+### Root Cause (Second Bug)
 
 `by local choice` means the *driver* initiated the disconnect, not the router. This is a
 known class of instability on the MediaTek `mt7925e` chipset (and several other WiFi
@@ -236,7 +236,7 @@ chip's firmware (it ships as part of the kernel firmware package, not as a
 `fwupd`-updatable device). So the fix targets the power-management trigger directly
 instead of waiting on an upstream firmware update.
 
-### Fix
+### Fix (Second Bug)
 
 **Important — scope matters here.** `/sys/module/pcie_aspm/parameters/policy` is a
 **global** kernel setting: it affects every PCIe device (NVMe SSD, GPU, everything), not
