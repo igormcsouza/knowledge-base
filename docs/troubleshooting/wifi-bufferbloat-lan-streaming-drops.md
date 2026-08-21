@@ -8,16 +8,20 @@ tags:
 
 ---
 
-# WiFi Connection Collapses Only When Streaming to a LAN Device (Expo, Steam Link)
+# WiFi Bufferbloat Collapses the Connection When Streaming to a LAN Device (Expo, Steam Link)
 
 Internet felt "unstable" only in specific situations — running an Expo dev server for a
 phone to connect to, or streaming games to a phone via Steam Link. Regular browsing was
-fine most of the time. Turned out to be **two separate, compounding bugs**, both only
-triggered by sustained local WiFi throughput: classic **bufferbloat** (no active queue
-management on the wireless interface, so a big transfer buried everything else behind
-it), and a **driver/firmware instability** where the WiFi chipset forced its own
-reassociation under load and sometimes came back degraded. Fixing the first made things
-much better; the second explains why it wasn't perfect until both were addressed.
+fine most of the time. Turned out to be classic **bufferbloat**: no active queue
+management on the wireless interface, so a big sustained transfer buried everything else
+(pings, DNS, keepalives) behind it.
+
+!!! note
+    This machine also hit a second, unrelated WiFi instability during the same
+    investigation — see
+    [WiFi Card Drops Connection Under Load Due to PCIe Power Management](wifi-card-pcie-power-reassociation-drops.md).
+    That bug persisted even after this bufferbloat fix was applied, so don't assume
+    fixing bufferbloat alone rules out further WiFi instability.
 
 ## Environment
 
@@ -196,102 +200,6 @@ tc qdisc show dev wlp4s0
 
 Swap `wlp4s0` for your own interface name (`ip -br addr` to find it) if different.
 
-## A Second, Separate Bug: PCIe Power Management Confusing the WiFi Firmware
-
-`fq_codel` fixed the bufferbloat collapse, but a follow-up Expo session still hit a real
-outage — not jitter this time, actual `Destination Host Unreachable` for ~13 seconds,
-followed by a kernel-logged forced reassociation:
-
-```text
-wlp4s0: deauthenticating from 2e:70:4f:18:e8:d8 by local choice (Reason: 3=DEAUTH_LEAVING)
-wlp4s0: authenticate with 2e:70:4f:18:e8:d8 (try 1/3)
-wlp4s0: associated
-```
-
-The radio recovered for about 17 seconds (clean 1-4ms pings), then degraded back into
-sustained heavy jitter (100ms-1500ms) that didn't fully resolve for the rest of the
-session — worse than plain bufferbloat, and `tc qdisc show` confirmed `fq_codel` was
-still active throughout, so queue management wasn't the issue this time.
-
-### Root Cause (Second Bug)
-
-`by local choice` means the *driver* initiated the disconnect, not the router. This is a
-known class of instability on the MediaTek `mt7925e` chipset (and several other WiFi
-chipsets): under sustained load, the driver/firmware can get confused by the PCIe link
-transitioning through power-saving states (ASPM L0s/L1) or by PCIe runtime autosuspend
-kicking in, and forces a reassociation to recover — sometimes coming back in a degraded
-state rather than cleanly.
-
-```bash
-$ cat /sys/module/pcie_aspm/parameters/policy
-default [performance] powersave powersupersave    # was previously "default" (active)
-
-$ cat /sys/bus/pci/devices/0000:04:00.0/power/control
-on                                                 # was "auto" (runtime autosuspend allowed)
-```
-
-Checked first whether a newer firmware fixed it — it didn't apply here: `linux-firmware`
-was already at Ubuntu's latest packaged version, and `fwupdmgr` doesn't manage this
-chip's firmware (it ships as part of the kernel firmware package, not as a
-`fwupd`-updatable device). So the fix targets the power-management trigger directly
-instead of waiting on an upstream firmware update.
-
-### Fix (Second Bug)
-
-**Important — scope matters here.** `/sys/module/pcie_aspm/parameters/policy` is a
-**global** kernel setting: it affects every PCIe device (NVMe SSD, GPU, everything), not
-just WiFi. Setting it to `performance` system-wide measurably increases idle power draw
-and heat (worse battery life, more fan noise), especially with a discrete GPU in the
-picture. Prefer the WiFi-scoped version below unless the machine is always plugged in.
-
-**Recommended — scoped to the WiFi card only:**
-
-```bash
-# Disable PCIe runtime autosuspend for just the WiFi device
-sudo sh -c 'echo on > /sys/bus/pci/devices/0000:04:00.0/power/control'
-
-# Disable ASPM (L0s/L1 low-power link states) on just the WiFi device's PCIe link,
-# by clearing bits 0-1 of its Link Control register (CAP_EXP+0x10) — leaves every
-# other PCIe device's power management untouched
-sudo setpci -s 04:00.0 CAP_EXP+10.w=0000:0003
-```
-
-Verify:
-
-```bash
-$ cat /sys/bus/pci/devices/0000:04:00.0/power/control
-on
-
-$ sudo setpci -s 04:00.0 CAP_EXP+10.w
-0040   # low nibble even (0, 4, 8, or c) = ASPM bits clear = disabled
-```
-
-**To reverse (restore default power-saving behavior on the WiFi card):**
-
-```bash
-sudo sh -c 'echo auto > /sys/bus/pci/devices/0000:04:00.0/power/control'
-sudo setpci -s 04:00.0 CAP_EXP+10.w=0003:0003
-```
-
-**If a global test is wanted instead** (simpler, but see the battery/heat caveat above):
-
-```bash
-# Apply
-sudo sh -c 'echo performance > /sys/module/pcie_aspm/parameters/policy'
-
-# Reverse
-sudo sh -c 'echo default > /sys/module/pcie_aspm/parameters/policy'
-```
-
-Swap `0000:04:00.0` / `04:00.0` for your own WiFi device's PCI address
-(`lspci | grep -i network`) if different.
-
-Both the scoped commands above are **runtime-only** — they reset on reboot. Persisting
-them (e.g. via a `systemd-tmpfiles` rule or a small `systemd` oneshot service run at
-boot, since this isn't tied to a NetworkManager interface-up event the way `fq_codel`
-is) is a reasonable next step once confirmed stable over real use, but hold off making
-it permanent until it's proven itself across more than one session.
-
 ## Prevention / How to Recognize This Class of Bug Again
 
 ```mermaid
@@ -325,3 +233,15 @@ flowchart TD
   bandwidth that isn't there. Persistent jitter even with fq_codel active is a sign to
   also check channel congestion (`nmcli -f SSID,SIGNAL,CHAN dev wifi list`) and consider
   moving the AP to a less congested channel.
+
+## Further Reading
+
+- [Bufferbloat.net Projects](https://www.bufferbloat.net/projects/) — background on
+  bufferbloat, the tools/projects behind `fq_codel`/`cake`, and ongoing work on the
+  problem beyond this one interface-level fix.
+
+## Related Articles
+
+- [WiFi Card Drops Connection Under Load Due to PCIe Power Management](wifi-card-pcie-power-reassociation-drops.md) —
+  a separate, unrelated WiFi instability found on the same machine during this
+  investigation; don't assume this fix rules it out.

@@ -92,4 +92,5 @@ or just "now I know to look here first."
 ## Entries
 
 - [Browser Keeps Prompting to Log In on Every Article (polyfill.io)](polyfill-io-login-prompt.md)
-- [WiFi Connection Collapses Only When Streaming to a LAN Device (Expo, Steam Link)](wifi-bufferbloat-lan-streaming-drops.md)
+- [WiFi Bufferbloat Collapses the Connection When Streaming to a LAN Device (Expo, Steam Link)](wifi-bufferbloat-lan-streaming-drops.md)
+- [WiFi Card Drops Connection Under Load Due to PCIe Power Management (mt7925e Forced Reassociation)](wifi-card-pcie-power-reassociation-drops.md)
