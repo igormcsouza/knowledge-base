@@ -152,8 +152,8 @@ of just a pile of independent files.
 ## 7. Preview Locally Before Committing
 
 ```bash
-poetry install
-poetry run mkdocs serve
+uv sync
+uv run mkdocs serve
 ```
 
 Then open `http://127.0.0.1:8000` — the site reloads automatically as you edit. Worth

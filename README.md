@@ -38,13 +38,13 @@ Organized by area of interest, with a focus on machine learning and AI:
 1. **Install dependencies**:
 
    ```bash
-   poetry install
+   uv sync
    ```
 
 1. **Start the development server**:
 
    ```bash
-   poetry run mkdocs serve
+   uv run mkdocs serve
    ```
 
 1. **Open your browser** to `http://127.0.0.1:8000`
