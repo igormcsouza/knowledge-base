@@ -13,13 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
         with:
+          enable-cache: true
           python-version: '3.11'
-
-      - name: Install pre-commit
-        run: pip install pre-commit
 
       - name: Cache pre-commit environments
         uses: actions/cache@v3
@@ -30,4 +28,4 @@ jobs:
             pre-commit-${{ runner.os }}-
 
       - name: Run pre-commit
-        run: pre-commit run --all-files
+        run: uvx pre-commit run --all-files

@@ -39,26 +39,20 @@ To preview changes before publishing:
 ### Prerequisites
 
 - Python 3.11+
-- Poetry installed
+- [uv](https://docs.astral.sh/uv/) installed
 
 ### Steps
 
 1. **Install dependencies**:
 
    ```bash
-   poetry install
-   ```
-
-1. **Activate the virtual environment**:
-
-   ```bash
-   poetry shell
+   uv sync
    ```
 
 1. **Start the development server**:
 
    ```bash
-   mkdocs serve
+   uv run mkdocs serve
    ```
 
 1. **Open your browser** to `http://127.0.0.1:8000`

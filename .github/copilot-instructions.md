@@ -10,7 +10,7 @@ This is a comprehensive knowledge base built with **MkDocs Material** that conta
 
 - **Static Site Generator**: MkDocs Material
 - **Content Format**: Markdown with extensions
-- **Dependency Management**: Poetry (Python 3.11+)
+- **Dependency Management**: uv (Python 3.11+)
 - **Deployment**: GitHub Actions → GitHub Pages
 - **Code Quality**: Pre-commit hooks
 
@@ -84,7 +84,7 @@ function_call()
 
 1. **Clone Repository**: Use standard git clone workflow
 
-1. **Install Dependencies**: Use Poetry for dependency management
+1. **Install Dependencies**: Use uv for dependency management
 
 1. **Start Development Server**: Use MkDocs serve command for local development
 
@@ -213,7 +213,7 @@ When helping with this project:
 
 ### Commands for Debugging
 
-Use the appropriate Poetry and MkDocs commands for:
+Use the appropriate uv and MkDocs commands for:
 
 - Configuration validation
 - Verbose build output
