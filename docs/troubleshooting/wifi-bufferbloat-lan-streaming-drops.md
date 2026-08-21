@@ -234,6 +234,42 @@ flowchart TD
   also check channel congestion (`nmcli -f SSID,SIGNAL,CHAN dev wifi list`) and consider
   moving the AP to a less congested channel.
 
+## Beyond This Fix: Bufferbloat Further Upstream (Router / WAN Link)
+
+Fixing the local WiFi interface's qdisc only manages queuing *at that hop*. The same
+class of problem can also exist further out — the router's WAN uplink queue, the ISP's
+modem, or within the ISP's own network — and a local `fq_codel` fix on the laptop won't
+touch that.
+
+A run of a bufferbloat test (via the tools linked from
+[bufferbloat.net](https://www.bufferbloat.net/projects/)) came back **Grade C (~170ms
+added latency under load)**, meaning load on the WAN link adds meaningfully to ping — the
+same underlying signature as the WiFi bufferbloat above, just one or more hops further
+out.
+
+!!! note
+    This hasn't been root-caused yet — the directions below are where to look next, not
+    a confirmed fix. The rest of this article covers the local WiFi fix only; treat
+    WAN-side bufferbloat as a separate, still-open problem.
+
+- **Isolate direction first.** Most bufferbloat test tools grade upload and download
+  separately. Upload-side bufferbloat is usually the router pushing packets to the modem
+  faster than the real uplink can drain them; download-side is usually a queue on the
+  ISP's own equipment (modem/CMTS/ONT) filling up before packets even reach the router.
+- **Retest over a wired connection to the router** (bypass WiFi entirely) to confirm the
+  WAN-level grade isn't partly a leftover of the already-fixed WiFi issue, before
+  assuming the router/WAN link itself is the culprit.
+- **Smart Queue Management (SQM) on the router** is the standard fix for this class:
+  shape traffic at the router to slightly under the real WAN bandwidth (both directions)
+  using a modern AQM (`cake` or `fq_codel`), so the router's own queue absorbs and
+  manages the backlog instead of an unmanaged one further upstream. On OpenWrt, that's
+  the `sqm-scripts` package (`cake` qdisc); on pfSense/OPNsense, the Traffic
+  Shaper/Limiters with CoDel; some consumer routers expose it as "Smart Queue
+  Management" or "Adaptive QoS" in their UI.
+- **If SQM doesn't close the gap**, the queuing may be happening on the ISP's own
+  equipment, which a home router can't manage — that points toward the ISP itself rather
+  than anything fixable locally.
+
 ## Further Reading
 
 - [Bufferbloat.net Projects](https://www.bufferbloat.net/projects/) — background on
