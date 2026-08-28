@@ -128,3 +128,6 @@ trigger wiring stay versioned together.
   behind writing a safe-to-retry Lambda handler.
 - [AWS CDK](cdk.md) — the usual way a Lambda function and its trigger get
   deployed and versioned together.
+- [FastMCP: Building and Deploying an MCP Server](../../machine-learning/fastmcp-knowledge-base-server.md) —
+  running an MCP server on Lambda, and why response streaming pushes that
+  toward the AWS Lambda Web Adapter over a built-in ASGI adapter.
