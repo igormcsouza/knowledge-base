@@ -90,9 +90,9 @@ data is stale?" Work backward from that impact:
 
 1. What breaks if the reader sees a stale value? (Nothing? A bad but
    recoverable UX? Money lost? A safety issue?)
-2. How stale could it realistically get, given the replication mechanism in
+1. How stale could it realistically get, given the replication mechanism in
    use?
-3. Is the staleness self-correcting (the next read gets the fresh value) or
+1. Is the staleness self-correcting (the next read gets the fresh value) or
    does it need active reconciliation (e.g. a double-booked resource)?
 
 If the answer to (1) is "irrecoverable harm," lean strong. If it's
@@ -158,24 +158,22 @@ Use this checklist when evaluating a system, or explaining a consistency
 choice in a design discussion:
 
 1. What data or operations must always be correct?
-2. What data can be stale?
-3. How much staleness is acceptable (milliseconds, seconds, minutes)?
-4. What happens when replicas or services cannot communicate?
-5. What are the latency, availability, and operational costs of the chosen
+1. What data can be stale?
+1. How much staleness is acceptable (milliseconds, seconds, minutes)?
+1. What happens when replicas or services cannot communicate?
+1. What are the latency, availability, and operational costs of the chosen
    consistency model?
-6. What business risk are we accepting with the trade-off?
+1. What business risk are we accepting with the trade-off?
 
 A useful reasoning pattern for articulating the decision, in an interview or
 a design doc alike:
 
 !!! tip "Reasoning Pattern"
-    **"I chose X because Y, and the cost/trade-off is Z."**
-
-    Example: *"I chose eventual consistency for driver location because the
-    business only needs the latest known position and low latency matters
-    more than millisecond-perfect accuracy; the trade-off is that a rider
-    might briefly see a slightly outdated pin, which self-corrects on the
-    next update."*
+    **"I chose X because Y, and the cost/trade-off is Z."** Example: *"I chose
+    eventual consistency for driver location because the business only needs
+    the latest known position and low latency matters more than
+    millisecond-perfect accuracy; the trade-off is that a rider might briefly
+    see a slightly outdated pin, which self-corrects on the next update."*
 
 ## Summary
 
