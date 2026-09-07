@@ -20,6 +20,9 @@ work) and practice (what actually happens when you build and ship them).
   algebra and calculus behind forward passes, loss functions, and backpropagation.
 - [FastMCP: Building and Deploying an MCP Server](fastmcp-knowledge-base-server.md) —
   exposing tools to an LLM client with FastMCP, and deploying one to AWS Lambda.
+- [Amazon Bedrock AgentCore: Production Infrastructure for AI Agents](aws-bedrock-agentcore.md) —
+  what AgentCore is, how it differs from LangChain/LangGraph and the LLM provider, and a
+  migration path for an existing agent.
 
 ## Contributing
 
