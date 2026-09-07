@@ -72,8 +72,8 @@ sequenceDiagram
 1. Caught the app's probe failing live via DevTools network inspection.
 1. **In the same tab, at the same moment**, ran a manual `fetch()` to the *exact same URL*
    from the console:
-    - Same options as the app's fetch (default cache mode) → failed, every time.
-    - Same call but with `cache: "no-store"` added → succeeded, every time.
+   - Same options as the app's fetch (default cache mode) → failed, every time.
+   - Same call but with `cache: "no-store"` added → succeeded, every time.
 1. Same URL, same tab, same instant — the only variable was cache mode. That's about as
    close to a controlled experiment as you get in a live browser bug.
 1. Independently confirmed via Chrome DevTools' **"Disable cache"** checkbox (Network
