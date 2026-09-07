@@ -92,5 +92,6 @@ or just "now I know to look here first."
 ## Entries
 
 - [Browser Keeps Prompting to Log In on Every Article (polyfill.io)](polyfill-io-login-prompt.md)
+- [Intermittent "CORS Error" / "Failed to Fetch" That's Actually a Stale Browser Cache](stale-browser-cache-fetch-cors-error.md)
 - [WiFi Bufferbloat Collapses the Connection When Streaming to a LAN Device (Expo, Steam Link)](wifi-bufferbloat-lan-streaming-drops.md)
 - [WiFi Card Drops Connection Under Load Due to PCIe Power Management (mt7925e Forced Reassociation)](wifi-card-pcie-power-reassociation-drops.md)
