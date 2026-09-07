@@ -257,3 +257,6 @@ async with Client("server.py") as client:
   build on.
 - [AWS CDK](../devops-tools/aws/cdk.md) — how to define and deploy the
   container image and Function URL as code rather than by hand.
+- [Amazon Bedrock AgentCore](aws-bedrock-agentcore.md) — AgentCore Gateway solves a
+  related problem to a hand-written MCP server: turning existing APIs into governed
+  MCP-compatible tools without writing the server yourself.
