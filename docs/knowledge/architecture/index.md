@@ -25,6 +25,9 @@ within a service, and how services communicate with each other.
 - [Dependency Inversion via Interfaces and Abstract Classes](dependency-inversion-abstract-classes.md)
   — the SOLID principle behind DI, and `abc.ABC` as the nominal-typing way
   to express the abstraction it requires.
+- [Understanding Consistency in Distributed Systems](consistency-in-distributed-systems.md)
+  — strong vs. eventual consistency, why replication introduces staleness,
+  and a checklist for choosing the right guarantee per piece of data.
 
 ## Patterns
 
