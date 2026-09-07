@@ -217,14 +217,14 @@ Don't rewrite the agent to adopt AgentCore. The pattern that keeps risk low:
 
 1. **Containerize the existing agent unchanged.** If it already runs as a Python process
    locally, wrapping it for Runtime is packaging work, not a rewrite.
-2. **Deploy to Runtime alone first**, keeping the current model provider and orchestration
+1. **Deploy to Runtime alone first**, keeping the current model provider and orchestration
    exactly as they are. Validate that sessions, scaling, and logging behave as expected.
-3. **Add Observability early** — it's the cheapest way to find out whether the migration
+1. **Add Observability early** — it's the cheapest way to find out whether the migration
    actually changed anything before adding more moving parts.
-4. **Adopt Memory, Gateway, or Identity individually**, each only when its specific problem
+1. **Adopt Memory, Gateway, or Identity individually**, each only when its specific problem
    shows up (state loss between sessions → Memory; unwieldy in-process tool functions →
    Gateway; a need for per-user authorization on tool calls → Identity).
-5. **Leave the model provider alone unless there's a separate reason to move it.** Switching
+1. **Leave the model provider alone unless there's a separate reason to move it.** Switching
    from OpenAI to a Bedrock-hosted model is an independent decision from adopting AgentCore
    — nothing about Runtime requires using Bedrock's models.
 
