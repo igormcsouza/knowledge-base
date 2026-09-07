@@ -28,6 +28,9 @@ within a service, and how services communicate with each other.
 - [Understanding Consistency in Distributed Systems](consistency-in-distributed-systems.md)
   — strong vs. eventual consistency, why replication introduces staleness,
   and a checklist for choosing the right guarantee per piece of data.
+- [Senior Software Engineer Architecture Interview Cheat Sheet](senior-interview-cheat-sheet.md)
+  — a problem-to-pattern table for recurring architecture and
+  distributed-systems interview questions, plus a response template.
 
 ## Patterns
 
