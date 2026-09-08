@@ -30,6 +30,8 @@ documentation, tips, and tricks, organized by area of interest.
   consistency guarantees.
 - **[Algorithms](algorithms/index.md)** — classic algorithms and problem-solving
   techniques.
+- **[Data Engineering](data-engineering/index.md)** — data warehouses,
+  ETL/ELT pipelines, and platform-level data concerns.
 
 Looking for something that doesn't fit here? See [Contributing](../contributing.md) — new
 categories are added the moment there's a first article for them.
