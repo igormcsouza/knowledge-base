@@ -186,10 +186,10 @@ The analogy should not be taken literally. CPython's GIL is a locking mechanism 
 When analyzing asynchronous JavaScript, ask:
 
 1. What is executing synchronously on the Call Stack?
-2. What operation is being handled by the runtime?
-3. Does it produce a Promise or callback?
-4. Which queue will the continuation enter?
-5. When will the Event Loop allow it to execute?
+1. What operation is being handled by the runtime?
+1. Does it produce a Promise or callback?
+1. Which queue will the continuation enter?
+1. When will the Event Loop allow it to execute?
 
 ## Related Articles
 
