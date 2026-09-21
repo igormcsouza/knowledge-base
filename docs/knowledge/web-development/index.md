@@ -19,6 +19,8 @@ Frameworks, patterns, and practical notes for building and shipping web applicat
   actually run, and how to deal with background tasks.
 - [TypeScript Fundamentals](typescript-fundamentals.md) — typing properly:
   interfaces, generics, narrowing, and utility types.
+- [JavaScript Fundamentals](javascript-fundamentals.md) — the Call Stack, Event Loop, tasks and microtasks, Promises, async/await, and closures.
+- [React Principles](react-principles.md) — rendering, state, Effects, refs, Context, server state, React Query, memoization, SSR/SSG/CSR, WebSockets, accessibility, Tailwind, and performance.
 - [REST vs. GraphQL](rest-vs-graphql.md) — resource/verb design vs. a
   single-endpoint query language, over-/under-fetching, and GraphQL's own
   N+1 problem.
