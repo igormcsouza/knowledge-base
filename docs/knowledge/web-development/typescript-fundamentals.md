@@ -195,6 +195,41 @@ type UserMap = Record<number, User>;          // { [key: number]: User }
 type ReadonlyUser = Readonly<User>;           // all properties readonly
 ```
 
+## TypeScript in React
+
+React components are functions, so the same typing principles apply to props, state, events, and reusable components.
+
+A simple component can type its props directly:
+
+```tsx
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+};
+
+function ProductCard({ product }: { product: Product }) {
+  return <h2>{product.name}</h2>;
+}
+```
+
+Generics become useful for reusable components. For example, a generic list can preserve the relationship between its item type and its render function:
+
+```tsx
+type ListProps<T> = {
+  items: T[];
+  renderItem: (item: T) => React.ReactNode;
+};
+
+function List<T>({ items, renderItem }: ListProps<T>) {
+  return <>{items.map(renderItem)}</>;
+}
+```
+
+This allows the same component to work with different data while keeping the item type available inside renderItem.
+
+For API boundaries, prefer explicit domain types and avoid allowing any to spread through the application. If the external data is not trusted, unknown forces the application to validate or narrow it before use.
+
 ## Best Practices
 
 - Enable `strict` mode in `tsconfig.json` (`"strict": true`) — it turns on
