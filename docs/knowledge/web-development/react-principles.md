@@ -468,4 +468,3 @@ The strongest answers explain the reason behind each tool, what problem it solve
 - [TypeScript Fundamentals](typescript-fundamentals.md)
 - [WebSockets](websockets.md)
 - [FastAPI Event Loop](fastapi-event-loop.md)
-
