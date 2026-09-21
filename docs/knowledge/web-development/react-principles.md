@@ -11,8 +11,6 @@ tags:
 
 # React Principles
 
-<!-- markdownlint-disable MD033 -->
-
 React becomes easier to reason about when the mental model is clear: state changes cause renders, props flow through component boundaries, Effects synchronize with external systems, and different kinds of state should be managed differently.
 
 ## Rendering and State
@@ -154,7 +152,7 @@ useRef is a persistent mutable container whose changes do not trigger a render.
 The simplest use is a DOM reference:
 
 \`\`\`jsx
-const inputRef = useRef<HTMLInputElement>(null);
+const inputRef = useRef(null);
 
 return (
   <>
@@ -392,9 +390,7 @@ Accessibility should be part of component design, not a final check.
 
 Prefer semantic HTML:
 
-\`\`\`html
-<button>Save</button>
-\`\`\`
+Use a semantic button element, for example: `button` with the accessible name `Save`.
 
 over a clickable generic element.
 
@@ -415,11 +411,7 @@ Reference: [W3C Web Accessibility Initiative](https://www.w3.org/WAI/standards-g
 
 Tailwind provides utility classes that can be composed directly in markup:
 
-\`\`\`jsx
-<button className="px-4 py-2 rounded-md font-medium">
-  Save
-</button>
-\`\`\`
+For example, a button can compose utilities such as `px-4`, `py-2`, `rounded-md`, and `font-medium`.
 
 Know responsive utilities, spacing, flexbox/grid, hover/focus states, breakpoints, dark mode, and utility composition.
 
@@ -477,4 +469,3 @@ The strongest answers explain the reason behind each tool, what problem it solve
 - [WebSockets](websockets.md)
 - [FastAPI Event Loop](fastapi-event-loop.md)
 
-<!-- markdownlint-enable MD033 -->
