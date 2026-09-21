@@ -11,6 +11,8 @@ tags:
 
 # React Principles
 
+<!-- markdownlint-disable MD033 -->
+
 React becomes easier to reason about when the mental model is clear: state changes cause renders, props flow through component boundaries, Effects synchronize with external systems, and different kinds of state should be managed differently.
 
 ## Rendering and State
@@ -434,10 +436,10 @@ Useful tools include React DevTools Profiler, Chrome DevTools Performance and Me
 Ask:
 
 1. Which component rendered?
-2. Why did it render?
-3. How long did it take?
-4. Is the work actually expensive?
-5. Can the problem be solved structurally before adding memoization?
+1. Why did it render?
+1. How long did it take?
+1. Is the work actually expensive?
+1. Can the problem be solved structurally before adding memoization?
 
 For very large lists, virtualization renders only the visible portion instead of creating DOM nodes for every item.
 
@@ -474,3 +476,5 @@ The strongest answers explain the reason behind each tool, what problem it solve
 - [TypeScript Fundamentals](typescript-fundamentals.md)
 - [WebSockets](websockets.md)
 - [FastAPI Event Loop](fastapi-event-loop.md)
+
+<!-- markdownlint-enable MD033 -->
