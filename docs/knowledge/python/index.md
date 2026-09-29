@@ -28,6 +28,18 @@ Python day to day.
   model, `TaskGroup` vs. `gather`, cancellation, and the synchronization primitives.
 - [Logging & Tracing in Python](logging-and-tracing.md) — the `logging` module done
   right, `contextvars` for async-safe request context, and distributed tracing basics.
+- [Context Managers](context-managers.md) — the `with` protocol, `@contextmanager`,
+  and `ExitStack`.
+- [Closures and Lexical Scope](closures-lexical-scope.md) — LEGB, cells, `nonlocal`, and
+  late-binding gotchas.
+- [Decorators](decorators.md) — `functools.wraps`, decorators with arguments, stacking
+  order, and async.
+- [Multiple Inheritance & MRO](multiple-inheritance-mro.md) — C3 linearization, what
+  `super()` really does, and mixins.
+- [Cyclic Garbage Collector](garbage-collection-cycles.md) — reference counting, cycles,
+  generations, and `weakref`.
+- [GIL, Threading, Multiprocessing & Memory Model](gil-threading-multiprocessing.md) —
+  why the GIL exists, thread safety, and sharing memory across processes.
 
 ## Contributing
 
