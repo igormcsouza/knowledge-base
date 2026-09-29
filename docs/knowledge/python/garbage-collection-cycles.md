@@ -50,9 +50,9 @@ etc. — things that can hold references). Atomic types like `int` and `str` can
 cycles and aren't tracked. It finds garbage roughly like this:
 
 1. For each tracked object, copy its refcount.
-2. Subtract references that come *from other tracked objects* (internal references).
-3. Anything left with a positive count is referenced from outside the set → reachable.
-4. Everything reachable from those is kept; the rest is unreachable cyclic garbage and is
+1. Subtract references that come *from other tracked objects* (internal references).
+1. Anything left with a positive count is referenced from outside the set → reachable.
+1. Everything reachable from those is kept; the rest is unreachable cyclic garbage and is
    freed.
 
 ### Generations

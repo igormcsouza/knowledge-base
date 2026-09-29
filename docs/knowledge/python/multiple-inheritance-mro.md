@@ -45,8 +45,8 @@ D.mro()
 Python computes the MRO with the **C3 algorithm**, which guarantees:
 
 1. A class comes before its parents.
-2. The order of bases in the `class` statement is preserved (`D(B, C)` → B before C).
-3. The ordering is monotonic — a subclass never reorders what its parents established.
+1. The order of bases in the `class` statement is preserved (`D(B, C)` → B before C).
+1. The ordering is monotonic — a subclass never reorders what its parents established.
 
 Formally, `L[D] = D + merge(L[B], L[C], [B, C])`. If no consistent order exists Python
 raises `TypeError: Cannot create a consistent method resolution order`

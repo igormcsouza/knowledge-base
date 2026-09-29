@@ -20,9 +20,9 @@ that function has returned.
 When Python looks up a name inside a function it searches, in order:
 
 1. **L**ocal — the current function.
-2. **E**nclosing — any enclosing function scopes, innermost first.
-3. **G**lobal — the module level.
-4. **B**uilt-in — `len`, `print`, etc.
+1. **E**nclosing — any enclosing function scopes, innermost first.
+1. **G**lobal — the module level.
+1. **B**uilt-in — `len`, `print`, etc.
 
 Only functions, classes, and modules create scopes. `if`/`for`/`while`/`with` blocks do
 **not**, so a variable assigned in a loop body is visible after the loop.
