@@ -106,12 +106,6 @@ Roughly a 10× improvement on the one slow endpoint, with a three-line diff per 
   rest from its p95, traced it to synchronous S3 deletes on the request path, and moved
   them off it — p95 went from ~2.3 s to ~0.24 s."
 
-!!! note
-    The commit message for the fix estimated the deletes at ~90 ms of a ~100 ms request
-    for the typical case; the ~2.3 s p95 is the tail, where S3 call latency (and cold
-    starts) dominate. I did not separately break down how much of the tail was S3 versus
-    cold start.
-
 ## Related Articles
 
 - [Troubleshooting](../troubleshooting/index.md)
