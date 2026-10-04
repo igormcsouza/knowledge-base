@@ -14,6 +14,7 @@ Organized by area of interest, with a focus on machine learning and AI:
 - **DevOps & Tools**: Git commands, configurations, and workflows
 - **Roadmap**: A competency matrix tracking progress toward Senior
 - **Troubleshooting**: Real problems hit and how they got fixed
+- **Achievements**: Things I built or improved, with the numbers
 - **And more, as new areas come up!**
 
 ## Features
