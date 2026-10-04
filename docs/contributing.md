@@ -19,6 +19,9 @@ the right folder," something's wrong — fix the process, not the habit.
 Is it a specific bug/error you hit and fixed?
   → docs/troubleshooting/ (see its own template)
 
+Is it something you built/improved that you'll want to recall later (with numbers)?
+  → docs/achievements/ (see its own template)
+
 Is it a progress update on your Senior-engineer roadmap?
   → docs/roadmap/index.md (edit the matrix + add a Day X entry)
 
@@ -162,11 +165,14 @@ to get subtly wrong in raw markdown.
 
 ## 8. Special Sections
 
-Two sections have their own dedicated format, different from a standard topic article:
+Three sections have their own dedicated format, different from a standard topic article:
 
 - **[Troubleshooting](troubleshooting/index.md)** — one file per fixed problem, using
   [the entry template in the troubleshooting index](troubleshooting/index.md#how-to-add-one)
   (Problem / Environment / Root Cause / Fix / Prevention).
+- **[Achievements](achievements/index.md)** — one file per accomplishment, using
+  [the entry template in the achievements index](achievements/index.md#how-to-add-one)
+  (Context / Problem / What I Did / Result / Takeaways).
 - **[Roadmap](roadmap/index.md)** — a single page you edit in place (competency matrix +
   Day X log), not a new file per update.
 

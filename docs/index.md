@@ -17,6 +17,7 @@ specialized in machine learning and AI:
 - **[DevOps & Tools](knowledge/devops-tools/index.md)**: Git, tooling, and workflows
 - **[Roadmap](roadmap/index.md)**: A competency matrix tracking progress toward Senior
 - **[Troubleshooting](troubleshooting/index.md)**: Real problems hit and how they got fixed
+- **[Achievements](achievements/index.md)**: Things I built or improved, with the numbers
 - **And more, as new areas come up!**
 
 ## Navigation
