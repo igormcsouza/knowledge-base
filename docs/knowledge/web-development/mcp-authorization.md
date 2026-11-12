@@ -58,22 +58,22 @@ Each arrow is a named standard:
 1. **The 401 challenge** (RFC 9110 + RFC 9728). An unauthenticated request gets
    `401` with `WWW-Authenticate: Bearer resource_metadata="https://host/.well-known/oauth-protected-resource"`.
    This header is the client's only clue, so it has to be right.
-2. **Protected Resource Metadata** (RFC 9728). That document says which
+1. **Protected Resource Metadata** (RFC 9728). That document says which
    authorization server(s) protect this resource:
    `{"resource": ".../mcp", "authorization_servers": ["https://host"]}`.
-3. **Authorization Server Metadata** (RFC 8414). The AS publishes its
+1. **Authorization Server Metadata** (RFC 8414). The AS publishes its
    `authorization_endpoint`, `token_endpoint`, `registration_endpoint`, supported
    PKCE methods, and so on, at a well-known path.
-4. **Dynamic Client Registration, DCR** (RFC 7591). The client POSTs its name and
+1. **Dynamic Client Registration, DCR** (RFC 7591). The client POSTs its name and
    redirect URIs and gets back a fresh `client_id`. This is what removes the
    "create an app and paste a client id" step. Without DCR, the user has to register
    the client by hand and type the id into the assistant's settings.
-5. **Authorization code + PKCE** (OAuth 2.1). The client sends the user to
+1. **Authorization code + PKCE** (OAuth 2.1). The client sends the user to
    `/authorize` with a `code_challenge`; the AS authenticates the user, asks for
    consent, and redirects back with a one-time `code`. The client redeems it at
    `/token` together with the `code_verifier`; the AS checks
    `SHA256(verifier) == challenge`. A stolen code is useless without the verifier.
-6. **Bearer token on every call.** Access tokens are short-lived; the refresh token
+1. **Bearer token on every call.** Access tokens are short-lived; the refresh token
    gets a new one without bothering the user again.
 
 !!! note
