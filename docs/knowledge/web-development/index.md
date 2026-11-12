@@ -33,6 +33,12 @@ Frameworks, patterns, and practical notes for building and shipping web applicat
 - [OAuth2 & JWT Authentication](oauth2-jwt-authentication.md) — grant types,
   OIDC, JWT structure and signature verification, and access/refresh token
   handling.
+- [Single Sign-On with OIDC](single-sign-on-oidc.md) — one identity provider
+  session shared by several apps, per-app clients, `sub` as identity, and sign-out
+  semantics.
+- [MCP Authorization](mcp-authorization.md) — how a remote MCP server
+  authenticates callers: discovery RFCs, dynamic client registration, OAuth2 + PKCE,
+  grants and revocation.
 - [Pydantic Advanced: Validators, Aliases & Settings](pydantic-advanced-validators-aliases.md)
   — custom validators, field aliasing, computed fields, and settings
   management with `pydantic-settings`.

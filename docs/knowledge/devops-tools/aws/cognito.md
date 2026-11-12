@@ -56,6 +56,28 @@ an [S3](s3.md) bucket without routing the upload through a backend server at
 all — the client gets temporary, scoped-down S3 credentials from an Identity
 Pool and uploads directly.
 
+## One Pool, Many Apps (SSO)
+
+A single User Pool can serve any number of apps: each gets its own **app client**
+(own `client_id`, callback/logout URLs and scopes) and all of them share the pool's
+**hosted login domain**. Signing in to one app sets a session cookie on that domain,
+so the next app's redirect skips the login form — that is
+[SSO](../../web-development/single-sign-on-oidc.md). Things worth remembering:
+
+- **`sub` is per pool.** The same person has a different `sub` in a different pool,
+  so moving an app between pools means migrating the data keyed by it.
+- **`name` and `picture` come in the ID token**, from the user's attributes; `picture`
+  is only a URL, so the image must be hosted elsewhere.
+- **Self-signup can be off** for a private pool; users are created by an admin.
+- **No Dynamic Client Registration.** Cognito cannot register clients on the fly, so it
+  cannot be the authorization server for a "paste a link" remote
+  [MCP connector](../../web-development/mcp-authorization.md) without a shim or
+  pre-registered client.
+- **Pools created with a retain removal policy** are not deleted when the stack is;
+  delete them by hand once nothing uses them.
+- **Global sign-out** revokes the user's refresh tokens; access tokens already issued
+  stay valid until they expire.
+
 ## When to Use Which
 
 - Need "is this user logged in, and who are they" for your own API? →
@@ -85,3 +107,7 @@ for the specific AWS resources the client needs to touch directly.
 
 - [S3](s3.md) — the most common target for Identity Pool credentials, e.g.
   direct client-side uploads.
+- [Single Sign-On with OIDC](../../web-development/single-sign-on-oidc.md) — several
+  apps as clients of one pool.
+- [MCP Authorization](../../web-development/mcp-authorization.md) — why a provider
+  without Dynamic Client Registration complicates remote MCP connectors.
