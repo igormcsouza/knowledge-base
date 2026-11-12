@@ -118,17 +118,17 @@ server whose identifier is the MCP URL, open or authenticated registration; see
 [Cognito](../devops-tools/aws/cognito.md#dynamic-client-registration-for-mcp)). That
 removes the token code, but not the trade-offs below.
 
-!!! warning "Delegating with open registration is a weaker posture"
+**Delegating with open registration is a weaker posture:**
 
-    - **No consent screen of your own.** A registered client chooses its own redirect
-      URIs, and a user who already has an SSO session can be signed in to it without a
-      prompt. A phishing link plus a client the attacker registered can then mint a
-      token. A self-run server can instead allow only the assistant vendor's callbacks
-      and ask "approve this app?" every time.
-    - **Open registration is anonymous and shared.** Anyone can create clients in the
-      pool (counted against its quota) unless you front it with a rate limit, and in a
-      shared SSO pool the clutter and the allowed scopes sit next to every other app.
-    - **Revocation is client deletion**, not a per-connection grant you can list.
+- **No consent screen of your own.** A registered client chooses its own redirect
+  URIs, and a user who already has an SSO session can be signed in to it without a
+  prompt. A phishing link plus a client the attacker registered can then mint a
+  token. A self-run server can instead allow only the assistant vendor's callbacks
+  and ask "approve this app?" every time.
+- **Open registration is anonymous and shared.** Anyone can create clients in the
+  pool (counted against its quota) unless you front it with a rate limit, and in a
+  shared SSO pool the clutter and the allowed scopes sit next to every other app.
+- **Revocation is client deletion**, not a per-connection grant you can list.
 
 !!! tip "Rule of thumb"
     "Paste a link and it works, for several different assistant accounts" needs DCR.
