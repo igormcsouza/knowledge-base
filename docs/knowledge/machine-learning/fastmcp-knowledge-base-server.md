@@ -260,3 +260,5 @@ async with Client("server.py") as client:
 - [Amazon Bedrock AgentCore](aws-bedrock-agentcore.md) — AgentCore Gateway solves a
   related problem to a hand-written MCP server: turning existing APIs into governed
   MCP-compatible tools without writing the server yourself.
+- [MCP Authorization](../web-development/mcp-authorization.md) — how a remote MCP
+  server authenticates callers: discovery, dynamic registration, OAuth2 + PKCE.

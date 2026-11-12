@@ -226,3 +226,7 @@ and calling it solved.
   the broader contract a consumer relies on.
 - [API Optimization & Resilience](api-optimization-resilience.md) — retry
   and idempotency patterns that apply to authenticated API calls too.
+- [Single Sign-On with OIDC](single-sign-on-oidc.md) — the same flows with several
+  apps sharing one identity provider.
+- [MCP Authorization](mcp-authorization.md) — OAuth2 + PKCE + discovery applied to
+  remote MCP servers.
