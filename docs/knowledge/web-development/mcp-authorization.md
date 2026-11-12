@@ -119,6 +119,7 @@ server whose identifier is the MCP URL, open or authenticated registration; see
 removes the token code, but not the trade-offs below.
 
 !!! warning "Delegating with open registration is a weaker posture"
+
     - **No consent screen of your own.** A registered client chooses its own redirect
       URIs, and a user who already has an SSO session can be signed in to it without a
       prompt. A phishing link plus a client the attacker registered can then mint a
