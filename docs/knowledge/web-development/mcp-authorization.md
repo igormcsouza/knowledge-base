@@ -106,17 +106,34 @@ The MCP server only validates tokens issued by a provider such as
 [Cognito](../devops-tools/aws/cognito.md), and points `authorization_servers` at it.
 
 - **Pros:** no token issuance code to maintain; one place for users and MFA.
-- **Cons:** the provider must support what the client expects. Cognito, notably, has
-  **no Dynamic Client Registration**, so a connector can only work if someone
-  pre-registers a client and gives the assistant that client id by hand (and a shim in
-  front of the provider usually has to paper over the missing discovery documents).
-  Tokens are also issued for the whole pool, so the server must check the client and
-  audience to know a token was meant for it.
+- **Cons:** the provider must support what the client expects, and you inherit its
+  defaults. Tokens are issued for the whole pool, so the server must check issuer,
+  audience and scope to know a token was meant for it.
+
+Whether a provider can onboard "paste a link" connectors depends on **Dynamic Client
+Registration**. Cognito used to have none (a connector then needed a hand-registered
+client id, plus a shim route on the MCP server to paper over missing discovery
+documents). It now has an opt-in DCR for MCP (managed login, a resource server per MCP
+server whose identifier is the MCP URL, open or authenticated registration; see
+[Cognito](../devops-tools/aws/cognito.md#dynamic-client-registration-for-mcp)). That
+removes the token code, but not the trade-offs below.
+
+!!! warning "Delegating with open registration is a weaker posture"
+    - **No consent screen of your own.** A registered client chooses its own redirect
+      URIs, and a user who already has an SSO session can be signed in to it without a
+      prompt. A phishing link plus a client the attacker registered can then mint a
+      token. A self-run server can instead allow only the assistant vendor's callbacks
+      and ask "approve this app?" every time.
+    - **Open registration is anonymous and shared.** Anyone can create clients in the
+      pool (counted against its quota) unless you front it with a rate limit, and in a
+      shared SSO pool the clutter and the allowed scopes sit next to every other app.
+    - **Revocation is client deletion**, not a per-connection grant you can list.
 
 !!! tip "Rule of thumb"
-    "Paste a link and it works, for several different assistant accounts" means the
-    server must speak DCR, which in practice means it runs its own small authorization
-    server. Delegating to a provider is simpler when the clients are known in advance.
+    "Paste a link and it works, for several different assistant accounts" needs DCR.
+    A provider's DCR is the lowest-code way; a small self-run authorization server is
+    the one that gives you consent, a redirect allow-list and per-connection
+    revocation. Delegating is simplest when the clients are known in advance.
 
 ## Design Decisions That Matter
 
@@ -194,8 +211,10 @@ grant row, all pointing at the approving user's id. That gives:
   bearer token.
 - The MCP server is a resource server; whether it also acts as the authorization
   server decides whether "just a link" onboarding is possible.
-- No DCR (as in Cognito) means manual client registration; running a small
-  authorization server with DCR removes it.
+- "Just a link" onboarding needs DCR: either the provider's (Cognito now offers one,
+  with open registration, no consent screen and client-deletion revocation) or a
+  small authorization server of your own (consent, redirect allow-list, per-grant
+  revocation).
 - Bind every grant to the approving user's id, hash all secrets, rotate refresh
   tokens and revoke the grant on reuse, restrict DCR, and give users a revoke page.
 - Validate `client_id` and `redirect_uri` before ever redirecting.
@@ -209,4 +228,4 @@ grant row, all pointing at the approving user's id. That gives:
 - [FastMCP: Building and Deploying an MCP Server](../machine-learning/fastmcp-knowledge-base-server.md)
   — the server side: tools, transports, deployment.
 - [AWS Cognito](../devops-tools/aws/cognito.md) — the identity provider used in the
-  delegated variant, and its missing DCR.
+  delegated variant, and its opt-in DCR for MCP.

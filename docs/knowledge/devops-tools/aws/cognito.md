@@ -69,14 +69,40 @@ so the next app's redirect skips the login form — that is
 - **`name` and `picture` come in the ID token**, from the user's attributes; `picture`
   is only a URL, so the image must be hosted elsewhere.
 - **Self-signup can be off** for a private pool; users are created by an admin.
-- **No Dynamic Client Registration.** Cognito cannot register clients on the fly, so it
-  cannot be the authorization server for a "paste a link" remote
-  [MCP connector](../../web-development/mcp-authorization.md) without a shim or
-  pre-registered client.
 - **Pools created with a retain removal policy** are not deleted when the stack is;
   delete them by hand once nothing uses them.
 - **Global sign-out** revokes the user's refresh tokens; access tokens already issued
   stay valid until they expire.
+
+## Dynamic Client Registration for MCP
+
+Cognito can now let applications register their own app clients at runtime (RFC 7591),
+which is what a remote [MCP connector](../../web-development/mcp-authorization.md)
+needs to onboard from just a URL. It is off by default (console: user pool →
+Applications → **MCP auth**).
+
+- **Requirements:** the Essentials or Plus feature plan, and **managed login** on every
+  domain of the pool. For MCP, a **resource server** whose identifier is the MCP
+  server's URL, with custom scopes; clients send the `resource` parameter and the access
+  token's `aud` is then that URL.
+- **Two modes:** *open* registration (no token) and *authenticated* registration (an
+  initial access token from a client holding the system scope `aws.cognito/dcr/register`).
+  Claude's connector cannot present an initial token, so it needs open registration.
+- **Discovery:** the OIDC document (`/.well-known/openid-configuration`) lists
+  `registration_endpoint` (`/oauth2/register`). The RFC 8414 path
+  `/.well-known/oauth-authorization-server` still answers 400 on the issuer, so a client
+  that does not fall back to OIDC discovery needs a small shim on the MCP server.
+- **Cost of open registration:** anyone can create clients (they share the app-client
+  quota, 10,000 with DCR on); registered clients get every identity provider of the
+  pool and the default auth flows; there is **no consent screen**, so a user with a live
+  session can be signed in to a hostile client without a prompt; there is no
+  per-connection grant, so revoking means deleting the client (list them with
+  `ListUserPoolClients` and `ClientType=DCR`). AWS suggests a WAF rate limit on
+  `/oauth2/register`, which is an extra paid component.
+
+In a shared SSO pool this puts anonymous registration next to every other app, so a
+dedicated pool (federating the SSO pool) or a self-run authorization server are the
+alternatives when that is too open.
 
 ## When to Use Which
 
@@ -109,5 +135,5 @@ for the specific AWS resources the client needs to touch directly.
   direct client-side uploads.
 - [Single Sign-On with OIDC](../../web-development/single-sign-on-oidc.md) — several
   apps as clients of one pool.
-- [MCP Authorization](../../web-development/mcp-authorization.md) — why a provider
-  without Dynamic Client Registration complicates remote MCP connectors.
+- [MCP Authorization](../../web-development/mcp-authorization.md) — remote MCP
+  connectors: delegating to Cognito's DCR versus running your own authorization server.
